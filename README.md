@@ -22,4 +22,6 @@ Follow these steps:
 
 <img width="341" alt="image" src="https://user-images.githubusercontent.com/67867765/196921478-43352b45-2e68-4d91-b703-8efbf6d06de3.png">
 
-<b>IMPORTANT</b>: Don't forget to checkout the branch before starting to work on the issue
+- <b>IMPORTANT</b>: Don't forget to checkout the branch before starting to work on the issue
+- When you are done, go to your branch on github and create a pull reuest
+- Add me (@mirceaiscoding) as the reviewer
