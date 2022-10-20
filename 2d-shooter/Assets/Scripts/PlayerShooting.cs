@@ -16,17 +16,32 @@ public class PlayerShooting : MonoBehaviour
     // The current position of the mouse
     private Vector2 mousePosition;
 
+    // Cooldown time between shots. Set in Unity Editor
+    public float shotCooldown = 0.5F;
+
+    // Time after which the player can shoot. 
+    private float nextShotTime;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        // Initialize nextShotTime to the current time.
+        nextShotTime = Time.time;
     }
+
+    // If the player can shoot the current time must be greater than nextShotTime
+    private bool canShoot() 
+    {
+        return Time.time > nextShotTime;
+    }
+
     // Update is called once per frame
     void Update()
     {
         updateMousePosition();
         Shoot();
     }
+
     // Independent of framerate
     void FixedUpdate()
     {
@@ -46,10 +61,17 @@ public class PlayerShooting : MonoBehaviour
         rigidbody.rotation = aimAngle;
     }
 
-    //When left-clicking uses the Fire method of the gun
+    // When left-clicking uses the Fire method of the gun
     void Shoot()
     {
-        if(Input.GetMouseButtonDown(0))
-            gun.Fire();
+        if (Input.GetMouseButton(0))
+            if (canShoot())
+            {
+                // Add cooldown to nextShotTime
+                nextShotTime = Time.time + shotCooldown;
+                
+                // Fire gun
+                gun.Fire();
+            }
     }
 }
