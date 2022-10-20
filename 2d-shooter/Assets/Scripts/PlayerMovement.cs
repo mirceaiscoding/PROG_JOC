@@ -17,16 +17,13 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
 
+    }
     // Update is called once per frame
     void Update()
     {
         updateMoveDirectionFromInputs();
-
     }
-
     // Independent of framerate
     void FixedUpdate()
     {
@@ -40,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
         moveDirection = new Vector2(moveX, moveY).normalized;
     }
 
-    // Move the player based on the direction anmd speed
+    // Move the player based on the direction and speed
     void MovePlayer() 
     {
         rigidbody.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
