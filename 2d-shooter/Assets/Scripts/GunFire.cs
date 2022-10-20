@@ -10,8 +10,8 @@ public class GunFire : MonoBehaviour
     // The spawning point of the bullet. Set in Unity Editor
     public Transform firePoint; 
 
-    // The speed of the bullet. Set in Unity Editor
-    public float fireForce;
+    // The speed of the bullet. Set in Unity Editor. Defaults to 10
+    public float fireForce = 10.0f;
 
     //Spawns a bullet then makes it move to the right of the spawn point (where the mouse is pointed)
     public void Fire()
