@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5058288700458445625}
   - component: {fileID: -1270366354541754646}
   - component: {fileID: 7593334635748129577}
+  - component: {fileID: 6902328897448235492}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -99,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 7593334635748129577}
+  destroyBulletAnimation: {fileID: 4133103405512876340, guid: ed601b9c8e3cc40afbafba1add8f0465, type: 3}
 --- !u!50 &7593334635748129577
 Rigidbody2D:
   serializedVersion: 4
@@ -120,3 +122,29 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!61 &6902328897448235492
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330192647624864147}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
