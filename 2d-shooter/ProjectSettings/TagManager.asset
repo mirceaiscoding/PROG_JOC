@@ -5,15 +5,16 @@ TagManager:
   serializedVersion: 2
   tags:
   - Wall
+  - Enemy
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Walls
   - Water
   - UI
-  - 
-  - 
+  - Enemies
+  - Player
   - 
   - 
   - 
