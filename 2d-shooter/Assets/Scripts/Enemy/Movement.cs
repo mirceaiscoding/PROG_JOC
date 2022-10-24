@@ -23,10 +23,14 @@ public class Movement : MonoBehaviour
     // Move towards a position with moveSpeed
     public void MoveTowards(Vector2 position) 
     {
-        if (!isKnockedback && Vector2.Distance(transform.position, position) > stoppingDistance)
+        if (!isKnockedback)
         {
-            var moveDirection = (position - new Vector2(transform.position.x, transform.position.y)).normalized;
-            rigidbody.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
+            if (Vector2.Distance(transform.position, position) > stoppingDistance) {
+                var moveDirection = (position - new Vector2(transform.position.x, transform.position.y)).normalized;
+                rigidbody.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
+            } else {
+                rigidbody.velocity = new Vector2(0.0f, 0.0f);
+            }
         }
     }
 
