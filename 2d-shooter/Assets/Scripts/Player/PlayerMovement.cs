@@ -11,6 +11,12 @@ public class PlayerMovement : MonoBehaviour
     // RigidBody of player. Set in Unity Editor
     public Rigidbody2D rigidbody;
 
+    // Animator used to set the current animation. Set in Unity Editor
+    public Animator animator;
+
+    // Sprite renderer used to flip the player based on horizontal movement. Set in Unity Editor
+    public SpriteRenderer spriteRenderer;
+
     // Direction of the player. Set by user inputs
     private Vector2 moveDirection;
 
@@ -35,6 +41,19 @@ public class PlayerMovement : MonoBehaviour
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
         moveDirection = new Vector2(moveX, moveY).normalized;
+
+        // Update variable for animator to switch between idle and running.
+        animator.SetFloat("Speed", Mathf.Abs(moveX) + Mathf.Abs(moveY));
+
+        // Flip player based on horizontal movement
+        if (moveX > 0) {
+            // normal
+            spriteRenderer.flipX = false;
+        } else if (moveX < 0) {
+            // moving to the left -> flip
+            spriteRenderer.flipX = true;
+        }
+
     }
 
     // Move the player based on the direction and speed
