@@ -22,7 +22,7 @@ public class Movement : MonoBehaviour
     {
         if (!isKnockedback && Vector2.Distance(transform.position, position) > 0.1f)
         {
-            if (Vector2.Distance(transform.position, position) > stoppingDistance) {
+            if (Vector2.Distance(transform.position, position) > 0.1f) {
                 var moveDirection = (position - new Vector2(transform.position.x, transform.position.y)).normalized;
                 rigidbody.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
             } else {

@@ -60,7 +60,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 2.6473136
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 1593452905208830823}
   - component: {fileID: 901243203}
   - component: {fileID: 901243196}
+  - component: {fileID: 982501746}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -209,6 +210,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   rigidbody: {fileID: 1593452905208830820}
+  animator: {fileID: 982501746}
+  spriteRenderer: {fileID: 1593452905208830821}
 --- !u!61 &901243203
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -250,6 +253,26 @@ MonoBehaviour:
   rigidbody: {fileID: 1593452905208830820}
   gun: {fileID: 1593452905226775531}
   shotCooldown: 0.5
+--- !u!95 &982501746
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1593452905208830819}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fc8f679d71da148399744e3164aff512, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &4866440729183350610
 PrefabInstance:
   m_ObjectHideFlags: 0
