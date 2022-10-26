@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e94c2a97f8bb4abb9e8a03f9a085363, type: 3}
-  m_Name: Patrol
+  m_Script: {fileID: 11500000, guid: db8090918379c4af1bda99f04a12f10c, type: 3}
+  m_Name: Patrol And Chase
   m_EditorClassIdentifier: 
-  stoppingDistance: 1
-  nextWaypointDistance: 1
-  repetableBehaviourCooldown: 5
-  patrolDistance: 3
+  patrol: {fileID: 11400000, guid: 82c79f30757664853bd0412c3d1d91ee, type: 2}
+  chase: {fileID: 11400000, guid: 191a160f10e734df4b587651b29e72ca, type: 2}

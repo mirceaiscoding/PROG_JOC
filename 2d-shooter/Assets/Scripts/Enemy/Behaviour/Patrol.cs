@@ -52,6 +52,7 @@ public class Patrol : EnemyBehaviour
     {
         return repetableBehaviourCooldown;
     }
+    
     public override void RepetableBehaviour(EnemyAI enemyAI)
     {
         UpdatePath(enemyAI);
