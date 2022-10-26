@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5e58e00a8ade411c9e6f8dc9f0e0bae, type: 3}
-  m_Name: Chase Player Behaviour
+  m_Script: {fileID: 11500000, guid: 03f6e1254b7b24d72bbc2f20eab30267, type: 3}
+  m_Name: Chase Player
   m_EditorClassIdentifier: 
   targetTag: Player

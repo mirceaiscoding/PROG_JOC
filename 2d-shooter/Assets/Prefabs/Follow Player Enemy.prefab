@@ -128,7 +128,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 8707978805931617182}
   moveSpeed: 3
-  stoppingDistance: 1
 --- !u!114 &8707978805931617183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,7 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b89ee4e51bba94a6bb3d161f42f03bef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyBehaviour: {fileID: 11400000, guid: b7246e56e83f742df862b90f2fe0a3d3, type: 2}
+  enemyBehaviour: {fileID: 11400000, guid: d02842e04c0014bfcacd062a14a9aeb1, type: 2}
 --- !u!50 &8707978805931617182
 Rigidbody2D:
   serializedVersion: 4
