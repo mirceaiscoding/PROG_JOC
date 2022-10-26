@@ -8,9 +8,15 @@ public class EnemyAI : MonoBehaviour
     // EnemyBehaviour set from Unity Editor
     public EnemyBehaviour enemyBehaviour;
 
-    // On fixed update call the enemyBehaviour
+    // On start init the enemyBehaviour
+    void Start()
+    {
+        enemyBehaviour.Init(this);
+    }
+
+    // On fixed update call the enemyBehaviour think method
     void FixedUpdate()
     {
-        enemyBehaviour.DoAction(this);
+        enemyBehaviour.Think(this);
     }
 }

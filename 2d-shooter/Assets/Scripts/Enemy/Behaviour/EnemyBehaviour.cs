@@ -6,5 +6,9 @@ using UnityEngine;
 // Abstart class for enemy behaviours
 public abstract class EnemyBehaviour : ScriptableObject
 {
-    public abstract void DoAction(EnemyAI enemyAI);
+    // Called when the behaviour is instantiated
+    public abstract void Init(EnemyAI enemyAI);
+
+    // Called on update
+    public abstract void Think(EnemyAI enemyAI);
 }

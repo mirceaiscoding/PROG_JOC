@@ -3,8 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 
-public class Chase : MonoBehaviour
+
+// EnemyBehaviour that move towards the player following a path
+[CreateAssetMenu(menuName = "EnemyBehaviour/SmartChase")]
+public class SmartChase : EnemyBehaviour
 {
+    // EnemyAI that calls this behaviour
+    EnemyAI enemyAI;
 
     // Tag of the target. Set in the Unity Editor. Defaults to Player
     public string targetTag = "Player";
@@ -32,25 +37,36 @@ public class Chase : MonoBehaviour
     // Seeker script of game object
     Seeker seeker;
 
-    void Start()
-    {
-        // Get components
-        seeker = GetComponent<Seeker>();
-        movement = GetComponent<Movement>();
+    // Time after which to update the path
+    public float updatePathTime = 0.5f;
 
-        // Calculate path at a specified time interval
-        InvokeRepeating("UpdatePath", 0f, 0.5f);
+    // The time after which to execute the next a path update
+    float nextUpdateTime;
+
+    public override void Init(EnemyAI enemyAI)
+    {
+
+        this.enemyAI = enemyAI;
+
+        // Get components
+        seeker = enemyAI.gameObject.GetComponent<Seeker>();
+        movement = enemyAI.gameObject.GetComponent<Movement>();
+
+        // Set nextUpdateTime to the current time
+        nextUpdateTime = Time.time;
     }
 
     void UpdatePath() 
     {
-        if (seeker.IsDone()) 
+        if (seeker.IsDone() && Time.time > nextUpdateTime) 
         {
+            nextUpdateTime = Time.time + updatePathTime;
+
             // Find the target
             GameObject target = GameObject.FindGameObjectWithTag(targetTag);
 
             // Calculate path
-            seeker.StartPath(transform.position, target.transform.position, OnPathComplete);
+            seeker.StartPath(enemyAI.transform.position, target.transform.position, OnPathComplete);
         }
     }
 
@@ -65,39 +81,31 @@ public class Chase : MonoBehaviour
         }
     }
 
-    void Update()
+
+    public override void Think(EnemyAI enemyAI) 
     {
+        UpdatePath();
 
-        if (Vector2.Distance(transform.position, path.vectorPath[path.vectorPath.Count-1]) < stoppingDistance)
+        if (path == null || 
+            currentWaypoint >= path.vectorPath.Count || 
+            Vector2.Distance(enemyAI.transform.position, path.vectorPath[path.vectorPath.Count-1]) < stoppingDistance)
         {
             reachedEndOfPath = true;
             movement.Stop();
             return;
         }
-
-        if (path == null) {
-            return;
-        }
-
-        if (currentWaypoint >= path.vectorPath.Count) 
-        {
-            reachedEndOfPath = true;
-            movement.Stop();
-            return;
-        } else {
-            reachedEndOfPath = false;
-        }
+        
+        reachedEndOfPath = false;
 
         // Move towards waypoint
         movement.MoveTowards(path.vectorPath[currentWaypoint]);
 
         // Check if the distance was reached and update the current waypoint
-        float distanceToWaypoint = Vector2.Distance(transform.position, path.vectorPath[currentWaypoint]);
+        float distanceToWaypoint = Vector2.Distance(enemyAI.transform.position, path.vectorPath[currentWaypoint]);
 
         if (distanceToWaypoint < nextWaypointDistance) 
         {
             currentWaypoint++;
         }
     }
-
 }

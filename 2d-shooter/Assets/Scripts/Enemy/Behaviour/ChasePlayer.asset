@@ -9,7 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03f6e1254b7b24d72bbc2f20eab30267, type: 3}
-  m_Name: Chase Player
+  m_Script: {fileID: 11500000, guid: 37cce00bd9d094800ac696bf5b98ede0, type: 3}
+  m_Name: ChasePlayer
   m_EditorClassIdentifier: 
   targetTag: Player
+  stoppingDistance: 1
+  nextWaypointDistance: 2

@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 7469957944742933246}
   - component: {fileID: 7469957944742933232}
   - component: {fileID: 7469957944742933242}
-  - component: {fileID: 7469957944742933241}
   - component: {fileID: 7469957944742933240}
+  - component: {fileID: 6894946819603939368}
   m_Layer: 6
   m_Name: Smart Follow Player Enemy
   m_TagString: Enemy
@@ -154,21 +154,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &7469957944742933241
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7469957944742933233}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbd53b33308104278a067e96dba85384, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetTag: Player
-  stoppingDistance: 1.2
-  nextWaypointDistance: 1
 --- !u!114 &7469957944742933240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,3 +168,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 7469957944742933232}
   moveSpeed: 3
+--- !u!114 &6894946819603939368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7469957944742933233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b89ee4e51bba94a6bb3d161f42f03bef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyBehaviour: {fileID: 11400000, guid: 191a160f10e734df4b587651b29e72ca, type: 2}
