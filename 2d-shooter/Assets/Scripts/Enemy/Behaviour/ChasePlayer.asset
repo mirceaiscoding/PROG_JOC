@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetTag: Player
   stoppingDistance: 1
-  nextWaypointDistance: 2
+  nextWaypointDistance: 1
+  updatePathTime: 0.3

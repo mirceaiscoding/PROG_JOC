@@ -181,3 +181,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyBehaviour: {fileID: 11400000, guid: 191a160f10e734df4b587651b29e72ca, type: 2}
+  repetableBehaviourCooldown: 1

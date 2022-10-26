@@ -11,4 +11,7 @@ public abstract class EnemyBehaviour : ScriptableObject
 
     // Called on update
     public abstract void Think(EnemyAI enemyAI);
+
+    // Called on a timer by the enemyAI
+    public abstract void RepetableBehaviour(EnemyAI enemyAI);
 }

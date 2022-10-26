@@ -8,8 +8,6 @@ using Pathfinding;
 [CreateAssetMenu(menuName = "EnemyBehaviour/SmartChase")]
 public class SmartChase : EnemyBehaviour
 {
-    // EnemyAI that calls this behaviour
-    EnemyAI enemyAI;
 
     // Tag of the target. Set in the Unity Editor. Defaults to Player
     public string targetTag = "Player";
@@ -37,33 +35,30 @@ public class SmartChase : EnemyBehaviour
     // Seeker script of game object
     Seeker seeker;
 
-    // Time after which to update the path
-    public float updatePathTime = 0.5f;
-
-    // The time after which to execute the next a path update
-    float nextUpdateTime;
-
     public override void Init(EnemyAI enemyAI)
     {
-
-        this.enemyAI = enemyAI;
-
         // Get components
         seeker = enemyAI.gameObject.GetComponent<Seeker>();
         movement = enemyAI.gameObject.GetComponent<Movement>();
-
-        // Set nextUpdateTime to the current time
-        nextUpdateTime = Time.time;
     }
 
-    void UpdatePath() 
+    public override void RepetableBehaviour(EnemyAI enemyAI)
     {
-        if (seeker.IsDone() && Time.time > nextUpdateTime) 
-        {
-            nextUpdateTime = Time.time + updatePathTime;
+        UpdatePath(enemyAI);
+    }
 
+    void UpdatePath(EnemyAI enemyAI) 
+    {
+        if (seeker.IsDone()) 
+        {
             // Find the target
             GameObject target = GameObject.FindGameObjectWithTag(targetTag);
+
+            if (target == null)
+            {
+                Debug.Log("WARNING: No target found");
+                return;
+            }
 
             // Calculate path
             seeker.StartPath(enemyAI.transform.position, target.transform.position, OnPathComplete);
@@ -84,8 +79,6 @@ public class SmartChase : EnemyBehaviour
 
     public override void Think(EnemyAI enemyAI) 
     {
-        UpdatePath();
-
         if (path == null || 
             currentWaypoint >= path.vectorPath.Count || 
             Vector2.Distance(enemyAI.transform.position, path.vectorPath[path.vectorPath.Count-1]) < stoppingDistance)
