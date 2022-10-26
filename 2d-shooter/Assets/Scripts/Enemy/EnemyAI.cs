@@ -8,15 +8,30 @@ public class EnemyAI : MonoBehaviour
     // EnemyBehaviour set from Unity Editor
     public EnemyBehaviour enemyBehaviour;
 
+    private EnemyBehaviour currentBehaviour;
+
     // On start init the enemyBehaviour
     void Start()
     {
-        enemyBehaviour.Init(this);
+        SetCurrentEnemyBehaviur(enemyBehaviour);
+    }
+
+    public void SetCurrentEnemyBehaviur(EnemyBehaviour behaviour)
+    {
+        currentBehaviour = Instantiate(behaviour);
+
+        currentBehaviour.Init(this);
+
+        InvokeRepeating("InvokeRepetableBehaviour", 0, currentBehaviour.GetRepetableBehaviourCooldown());
     }
 
     // On fixed update call the enemyBehaviour think method
     void FixedUpdate()
     {
-        enemyBehaviour.Think(this);
+        currentBehaviour.Think(this);
+    }
+
+    public void InvokeRepetableBehaviour() {
+        currentBehaviour.RepetableBehaviour(this);
     }
 }

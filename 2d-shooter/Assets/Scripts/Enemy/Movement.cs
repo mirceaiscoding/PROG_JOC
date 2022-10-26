@@ -34,7 +34,10 @@ public class Movement : MonoBehaviour
     // Stop all game object movement
     public void Stop() 
     {
-        rigidbody.velocity = Vector2.zero;
+        if (!isKnockedback) 
+        {
+            rigidbody.velocity = new Vector2(0.0f, 0.0f);
+        }
     }
 
     // Knockback object
@@ -46,7 +49,6 @@ public class Movement : MonoBehaviour
 
         // Apply knockback force
         rigidbody.velocity = knockbackVelocity;
-
     }
 
     void FixedUpdate()
@@ -59,6 +61,5 @@ public class Movement : MonoBehaviour
                 isKnockedback = false;
             }
         }
-        
     }
 }
