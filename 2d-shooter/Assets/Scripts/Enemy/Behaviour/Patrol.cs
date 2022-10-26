@@ -4,13 +4,10 @@ using UnityEngine;
 using Pathfinding;
 
 
-// EnemyBehaviour that move towards the player following a path
-[CreateAssetMenu(menuName = "EnemyBehaviour/SmartChase")]
-public class SmartChase : EnemyBehaviour
+// EnemyBehaviour that moves towards random points
+[CreateAssetMenu(menuName = "EnemyBehaviour/Patrol")]
+public class Patrol : EnemyBehaviour
 {
-
-    // Tag of the target. Set in the Unity Editor. Defaults to Player
-    public string targetTag = "Player";
 
     // Movement component of game object
     Movement movement;
@@ -35,6 +32,15 @@ public class SmartChase : EnemyBehaviour
     // Seeker script of game object
     Seeker seeker;
 
+    // Current target point, chosen at random.
+    Vector2 point;
+
+    // Time interval at which to execute the repetable behaviour
+    public float repetableBehaviourCooldown = 5f;
+
+    // Distance to look for a random waypoint
+    public float patrolDistance = 5f;
+
     public override void Init(EnemyAI enemyAI)
     {
         // Get components
@@ -44,9 +50,8 @@ public class SmartChase : EnemyBehaviour
 
     public override float GetRepetableBehaviourCooldown() 
     {
-        return 1f;
+        return repetableBehaviourCooldown;
     }
-
     public override void RepetableBehaviour(EnemyAI enemyAI)
     {
         UpdatePath(enemyAI);
@@ -56,17 +61,10 @@ public class SmartChase : EnemyBehaviour
     {
         if (seeker.IsDone()) 
         {
-            // Find the target
-            GameObject target = GameObject.FindGameObjectWithTag(targetTag);
-
-            if (target == null)
-            {
-                Debug.Log("WARNING: No target found");
-                return;
-            }
-
+            point = Random.insideUnitCircle.normalized * patrolDistance;
+            
             // Calculate path
-            seeker.StartPath(enemyAI.transform.position, target.transform.position, OnPathComplete);
+            seeker.StartPath(enemyAI.transform.position, point, OnPathComplete);
         }
     }
 
@@ -80,7 +78,6 @@ public class SmartChase : EnemyBehaviour
             currentWaypoint = 0;
         }
     }
-
 
     public override void Think(EnemyAI enemyAI) 
     {

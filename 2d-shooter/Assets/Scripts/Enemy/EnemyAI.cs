@@ -8,8 +8,6 @@ public class EnemyAI : MonoBehaviour
     // EnemyBehaviour set from Unity Editor
     public EnemyBehaviour enemyBehaviour;
 
-    public float repetableBehaviourCooldown = 1f;
-
     // On start init the enemyBehaviour
     void Start()
     {
@@ -17,7 +15,7 @@ public class EnemyAI : MonoBehaviour
 
         enemyBehaviour.Init(this);
 
-        InvokeRepeating("InvokeRepetableBehaviour", 0, repetableBehaviourCooldown);
+        InvokeRepeating("InvokeRepetableBehaviour", 0, enemyBehaviour.GetRepetableBehaviourCooldown());
     }
 
     // On fixed update call the enemyBehaviour think method
