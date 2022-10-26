@@ -11,9 +11,6 @@ public class Movement : MonoBehaviour
     // Movement speed. Set in Unity Editor
     public float moveSpeed;
 
-    // Stopping distance. Otherwise it will push the target. Set in the Unity Editor
-    public float stoppingDistance;
-
     // If the enemy is currently being knocked back
     private bool isKnockedback = false;
 
@@ -23,7 +20,7 @@ public class Movement : MonoBehaviour
     // Move towards a position with moveSpeed
     public void MoveTowards(Vector2 position) 
     {
-        if (!isKnockedback)
+        if (!isKnockedback && Vector2.Distance(transform.position, position) > 0.1f)
         {
             if (Vector2.Distance(transform.position, position) > stoppingDistance) {
                 var moveDirection = (position - new Vector2(transform.position.x, transform.position.y)).normalized;
@@ -32,6 +29,12 @@ public class Movement : MonoBehaviour
                 rigidbody.velocity = new Vector2(0.0f, 0.0f);
             }
         }
+    }
+
+    // Stop all game object movement
+    public void Stop() 
+    {
+        rigidbody.velocity = Vector2.zero;
     }
 
     // Knockback object
