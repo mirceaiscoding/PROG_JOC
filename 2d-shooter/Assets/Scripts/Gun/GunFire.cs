@@ -19,6 +19,9 @@ public class GunFire : MonoBehaviour
     // The speed of the bullet. Set in Unity Editor. Defaults to 10
     public float fireForce = 10.0f;
 
+    // The bullet modifiers.
+    public List<Powerup> bulletModifiers = new List<Powerup>();
+
     void Update()
     {
         updateMousePosition();
@@ -41,14 +44,19 @@ public class GunFire : MonoBehaviour
         Vector2 aimDirection = mousePosition - (Vector2)transform.position;
         float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(Vector3.forward * (aimAngle-90));
-
     }
 
     //Spawns a bullet then makes it move to the right of the spawn point (where the mouse is pointed)
     public void Fire()
     {
-        GameObject projectile = Instantiate(bullet, firePoint.position, firePoint.rotation);
-        projectile.GetComponent<Rigidbody2D>().AddForce(firePoint.right * fireForce, ForceMode2D.Impulse);
+        GameObject projectile = Instantiate(bullet, firePoint.position, firePoint.rotation) as GameObject;
+
+        foreach (Powerup bulletModifier in bulletModifiers)
+        {
+            bulletModifier.Apply(projectile);
+        }
+
+        projectile.GetComponent<Rigidbody2D>().velocity = firePoint.right * fireForce;
     }
 }
 

@@ -20,15 +20,49 @@ public class BulletMovement : MonoBehaviour
     // Time for which to knockback the enemy. Set in Unity Editor
     public float knockbackTime;
 
+    // True if the bullet bounces off of walls
+    bool isBouncy = true;
+
+    // Updates velocity
+    Vector2 lastVelocity;
+
+    public void SetIsBouncy(bool flag)
+    {
+        isBouncy = flag;
+    }
+
+    void Update() {
+        lastVelocity = rigidbody.velocity;
+    }
+
+    private void OnCollisionEnter2D(Collision2D other) {
+
+        switch (other.gameObject.tag) 
+        {
+            // Bullet hits a wall. destroy itself
+            case "Wall":
+
+                if (isBouncy)
+                {
+                    // Bounce back
+                    Debug.Log("Hit wall! Bounce back!");
+
+                    var speed = lastVelocity.magnitude;
+                    var direction = Vector3.Reflect(lastVelocity.normalized, other.contacts[0].normal);
+                    rigidbody.velocity = direction * Mathf.Max(0f, speed);
+                } else {
+                    destroyBullet();
+                }
+                break;
+        }
+    }
+
     // Called when the bullet enters another 2d collider
     void OnTriggerEnter2D(Collider2D other)
     {
         switch (other.gameObject.tag) 
         {
-            // Bullet hits a wall. destroy itself
-            case "Wall":
-                destroyBullet();
-                break;
+            
 
             // Bullet hits an enemy. Damage the enemy and destroy the bullet.
             case "Enemy":
@@ -58,5 +92,4 @@ public class BulletMovement : MonoBehaviour
         }
         Destroy(gameObject);
     }
-
 }
