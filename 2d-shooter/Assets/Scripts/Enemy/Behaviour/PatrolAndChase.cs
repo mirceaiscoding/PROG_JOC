@@ -19,6 +19,7 @@ public class PatrolAndChase : EnemyBehaviour
 
     public override void Init(EnemyAI enemyAI)
     {
+        patrol = Instantiate(patrol);
         patrol.Init(enemyAI);
     }
 

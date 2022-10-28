@@ -1074,6 +1074,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 519420031, guid: b2a5e46d2400c4f838012b252899a9b4, type: 3}
+      propertyPath: orthographic size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 519420032, guid: b2a5e46d2400c4f838012b252899a9b4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 519420032, guid: b2a5e46d2400c4f838012b252899a9b4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 519420032, guid: b2a5e46d2400c4f838012b252899a9b4, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 519420032, guid: b2a5e46d2400c4f838012b252899a9b4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 519420032, guid: b2a5e46d2400c4f838012b252899a9b4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 519420032, guid: b2a5e46d2400c4f838012b252899a9b4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 519420032, guid: b2a5e46d2400c4f838012b252899a9b4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1593452905208830819, guid: b2a5e46d2400c4f838012b252899a9b4, type: 3}
       propertyPath: m_Name
       value: Player
