@@ -561,7 +561,7 @@ GameObject:
   - component: {fileID: 1098659711}
   - component: {fileID: 1098659710}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Hearts UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -625,7 +625,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: 166035625
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &1098659713
