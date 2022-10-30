@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//creates a menu in unity editor for making scriptable objects
 [CreateAssetMenu(menuName = "Powerups/Bullets/Bouncy")]
 public class BouncyShot : Powerup
 {

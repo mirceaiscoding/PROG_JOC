@@ -21,7 +21,10 @@ public class BulletMovement : MonoBehaviour
     public float knockbackTime;
 
     // True if the bullet bounces off of walls
-    bool isBouncy = true;
+    bool isBouncy = false;
+
+    //Number of times the bullet can bounce off
+    int bouncesRemaining = 0;
 
     // Updates velocity
     Vector2 lastVelocity;
@@ -29,6 +32,7 @@ public class BulletMovement : MonoBehaviour
     public void SetIsBouncy(bool flag)
     {
         isBouncy = flag;
+        bouncesRemaining = 5;
     }
 
     void Update() {
@@ -42,14 +46,14 @@ public class BulletMovement : MonoBehaviour
             // Bullet hits a wall. destroy itself
             case "Wall":
 
-                if (isBouncy)
+                if (isBouncy && bouncesRemaining > 0)
                 {
+                    bouncesRemaining-=1;
                     // Bounce back
-                    Debug.Log("Hit wall! Bounce back!");
-
                     var speed = lastVelocity.magnitude;
                     var direction = Vector3.Reflect(lastVelocity.normalized, other.contacts[0].normal);
                     rigidbody.velocity = direction * Mathf.Max(0f, speed);
+                    
                 } else {
                     destroyBullet();
                 }

@@ -22,6 +22,9 @@ public class GunFire : MonoBehaviour
     // The bullet modifiers.
     public List<Powerup> bulletModifiers = new List<Powerup>();
 
+    // The gun modifiers.
+    public List<Powerup> gunModifiers = new List<Powerup>();
+
     void Update()
     {
         updateMousePosition();
