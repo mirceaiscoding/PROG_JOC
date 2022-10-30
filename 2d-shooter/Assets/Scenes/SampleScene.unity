@@ -1216,8 +1216,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 484.64, y: 311.09}
-  m_SizeDelta: {x: 406.71, y: 99.82}
+  m_AnchoredPosition: {x: -484, y: 217}
+  m_SizeDelta: {x: 293.95, y: 38.42}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2081634651
 MonoBehaviour:
@@ -1269,9 +1269,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aebc54f6ac324c24ca2438902435dd29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heartPrefab: {fileID: 5345882904575588453, guid: 8d986da4d67affb4da3db00822724666, type: 3}
-  health: 0
-  maxHealth: 0
+  heartPrefab: {fileID: 8724913140245789321, guid: 8d986da4d67affb4da3db00822724666, type: 3}
+  playerHealth: {fileID: 1593452906263726043}
 --- !u!114 &2081634654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1447,6 +1446,25 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 519420031, guid: b2a5e46d2400c4f838012b252899a9b4, type: 3}
   m_PrefabInstance: {fileID: 1593452906263726040}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1593452906263726042 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1593452905208830819, guid: b2a5e46d2400c4f838012b252899a9b4, type: 3}
+  m_PrefabInstance: {fileID: 1593452906263726040}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1593452906263726043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1593452906263726042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da23398e538d8f443ba83790ae466384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 8
+  maxHealth: 8
 --- !u!1001 &3024181693559990114
 PrefabInstance:
   m_ObjectHideFlags: 0
