@@ -32,7 +32,9 @@ public class BulletMovement : MonoBehaviour
 
             // Bullet hits an enemy. Damage the enemy and destroy the bullet.
             case "Enemy":
-                // TODO: Damage enemy
+                // Damage enemy
+                var enemyHealth = other.gameObject.GetComponent<Health>();
+                enemyHealth.TakeDamage(1);
 
                 // Knockback enemy
                 Vector2 knockbackVelocity = (other.transform.position - transform.position).normalized * knockbackSpeed;
