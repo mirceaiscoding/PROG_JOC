@@ -32,27 +32,29 @@ public class BulletMovement : MonoBehaviour
     public void SetIsBouncy(bool flag)
     {
         isBouncy = flag;
-        bouncesRemaining = 5;
+        
+        //change the bounciness of the PhysicsMaterial2d from the regular collider 
+        this.GetComponents<Collider2D>()[0].sharedMaterial.bounciness = 1;
+
+        //number of times the bullet is supposed to bounce
+        bouncesRemaining = 4;
     }
 
     void Update() {
         lastVelocity = rigidbody.velocity;
     }
 
+    //Regular collider of the bullet(without trigger)
     private void OnCollisionEnter2D(Collision2D other) {
 
         switch (other.gameObject.tag) 
         {
-            // Bullet hits a wall. destroy itself
+            // Bullet hits a wall. Destroys itself
             case "Wall":
 
                 if (isBouncy && bouncesRemaining > 0)
                 {
                     bouncesRemaining-=1;
-                    // Bounce back
-                    var speed = lastVelocity.magnitude;
-                    var direction = Vector3.Reflect(lastVelocity.normalized, other.contacts[0].normal);
-                    rigidbody.velocity = direction * Mathf.Max(0f, speed);
                     
                 } else {
                     destroyBullet();
@@ -61,7 +63,7 @@ public class BulletMovement : MonoBehaviour
         }
     }
 
-    // Called when the bullet enters another 2d collider
+    //Collider with trigger
     void OnTriggerEnter2D(Collider2D other)
     {
         switch (other.gameObject.tag) 
