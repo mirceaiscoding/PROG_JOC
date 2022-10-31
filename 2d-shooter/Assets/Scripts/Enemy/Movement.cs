@@ -62,4 +62,22 @@ public class Movement : MonoBehaviour
             }
         }
     }
+
+    void Update()
+    {
+        if (rigidbody)
+        {
+            // Update animation depending on velocity
+            var animator = GetComponent<Animator>();
+            if (animator)
+            {
+                if (rigidbody.velocity.magnitude > 0.1f)
+                {
+                    animator.SetBool("IsMoving", true);
+                } else {
+                    animator.SetBool("IsMoving", false);
+                }
+            }
+        }
+    }
 }
