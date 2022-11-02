@@ -17,6 +17,18 @@ public class Movement : MonoBehaviour
     // Time after which the enemy in no longer being knocked back
     private float notKnockedbackTime;
 
+    // Sprite renderer used to flip the sprite based on horizontal movement
+    SpriteRenderer spriteRenderer;
+
+    // Animator used to update animation
+    Animator animator;
+
+    void Start()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
+    }
+
     // Move towards a position with moveSpeed
     public void MoveTowards(Vector2 position) 
     {
@@ -59,6 +71,31 @@ public class Movement : MonoBehaviour
             if (Time.time > notKnockedbackTime) 
             {
                 isKnockedback = false;
+            }
+        }
+    }
+
+    void Update()
+    {
+        if (rigidbody)
+        {
+            // Update animation depending on velocity
+            if (animator)
+            {
+                if (rigidbody.velocity.magnitude > 0.1f)
+                {
+                    animator.SetBool("IsMoving", true);
+                } else {
+                    animator.SetBool("IsMoving", false);
+                }
+            }
+
+            if (rigidbody.velocity.x > 0) {
+                // normal
+                spriteRenderer.flipX = false;
+            } else if (rigidbody.velocity.x < 0) {
+                // moving to the left -> flip
+                spriteRenderer.flipX = true;
             }
         }
     }
