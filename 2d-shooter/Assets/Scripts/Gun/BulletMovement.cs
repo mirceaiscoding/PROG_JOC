@@ -5,6 +5,9 @@ using UnityEngine;
 public class BulletMovement : MonoBehaviour
 {
 
+    // Tag of the target that can be damaged by the bullet. Set in Unity Editor
+    public string targetTag = "Enemy";
+
     // RigidBody of bullet. Set in Unity Editor
     public Rigidbody2D rigidbody;
 
@@ -31,16 +34,19 @@ public class BulletMovement : MonoBehaviour
                 break;
 
             // Bullet hits an enemy. Damage the enemy and destroy the bullet.
-            case "Enemy":
+            case var _targetTag when _targetTag == targetTag:
                 // Damage enemy
                 var enemyHealth = other.gameObject.GetComponent<Health>();
                 enemyHealth.TakeDamage(1);
 
-                // Knockback enemy
-                Vector2 knockbackVelocity = (other.transform.position - transform.position).normalized * knockbackSpeed;
-
                 var movement = other.gameObject.GetComponent<Movement>();
-                movement.Knockback(knockbackVelocity, knockbackTime);
+                if (movement)
+                {
+                    // Knockback enemy
+                    Vector2 knockbackVelocity = (other.transform.position - transform.position).normalized * knockbackSpeed;
+
+                    movement.Knockback(knockbackVelocity, knockbackTime);
+                }
 
                 // Destroy bullet with hit animation
                 destroyBullet(true);

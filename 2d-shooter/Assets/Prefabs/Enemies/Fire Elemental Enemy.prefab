@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1024787672
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1024787673}
+  m_Layer: 6
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1024787673
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024787672}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.2, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4240013902058504142}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4240013902058504131
 GameObject:
   m_ObjectHideFlags: 0
@@ -19,6 +50,7 @@ GameObject:
   - component: {fileID: 1404988793987669023}
   - component: {fileID: 3207583645244297220}
   - component: {fileID: 6736559316942717623}
+  - component: {fileID: 346853300}
   m_Layer: 6
   m_Name: Fire Elemental Enemy
   m_TagString: Enemy
@@ -37,7 +69,8 @@ Transform:
   m_LocalPosition: {x: -7.1401834, y: 0.295, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1024787673}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -132,7 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b89ee4e51bba94a6bb3d161f42f03bef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyBehaviour: {fileID: 11400000, guid: a3b4a078244ad458f95c5e5f8b6853f0, type: 2}
+  enemyBehaviour: {fileID: 11400000, guid: af6d644a7e92c462d87b39e69a632766, type: 2}
 --- !u!212 &6736559316942717616
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -209,8 +242,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da23398e538d8f443ba83790ae466384, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 2
-  maxHealth: 2
+  health: 3
+  maxHealth: 3
 --- !u!114 &3207583645244297220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,3 +277,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &346853300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4240013902058504131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd607e30a1f344f79bb2e412b76776c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 1417148439819355756, guid: b25543c934e464c2cb00c5230c2c687c, type: 3}
+  firePoint: {fileID: 1024787673}
+  fireForce: 3

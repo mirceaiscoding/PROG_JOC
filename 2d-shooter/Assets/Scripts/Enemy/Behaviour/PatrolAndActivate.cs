@@ -4,18 +4,21 @@ using UnityEngine;
 
 
 // EnemyBehaviour that move towards the player following a path
-[CreateAssetMenu(menuName = "EnemyBehaviour/PatrolAndChase")]
-public class PatrolAndChase : EnemyBehaviour
+[CreateAssetMenu(menuName = "EnemyBehaviour/PatrolAndActivate")]
+public class PatrolAndActivate : EnemyBehaviour
 {
+
+    // Tag of the target. When in sight begin activated phase
+    public string targetTag = "Player";
 
     // Patrol enemy behaviour
     public Patrol patrol;
 
-    // Chase enemy behaviour
-    public SmartChase chase;
+    // Enemy activated behaviour
+    public EnemyBehaviour activatedBehaviour;
 
-    // True if enemy is in chase mode
-    bool isInChaseMode = false;
+    // True if enemy is in activated mode
+    bool isActivated = false;
 
     public override void Init(EnemyAI enemyAI)
     {
@@ -38,19 +41,19 @@ public class PatrolAndChase : EnemyBehaviour
 
         patrol.Think(enemyAI);
 
-        // If enemy sees its target start chase mode
-        if (!isInChaseMode)
+        // If enemy sees its target start activated mode
+        if (!isActivated)
         {
-            var target = GameObject.FindGameObjectWithTag(chase.targetTag);
+            var target = GameObject.FindGameObjectWithTag(targetTag);
             var enemyTargetLinecast = Physics2D.Linecast(enemyAI.transform.position, target.transform.position, 1 << LayerMask.NameToLayer("Walls"));
 
             if (!enemyTargetLinecast.collider)
             {
-                Debug.Log("Found target. Entered chase phase!");
+                Debug.Log("Found target. Entered activated phase!");
 
                 // No collision between enemy and target. Start chase phase
-                isInChaseMode = true;
-                enemyAI.SetCurrentEnemyBehaviur(chase);   
+                isActivated = true;
+                enemyAI.SetCurrentEnemyBehaviur(activatedBehaviour);   
 
                 // Update animation
                 var animator = enemyAI.gameObject.GetComponent<Animator>();
