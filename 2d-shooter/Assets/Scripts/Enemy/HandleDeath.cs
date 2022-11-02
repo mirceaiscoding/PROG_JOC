@@ -20,17 +20,20 @@ public class HandleDeath : MonoBehaviour
     {
 
         var enemyAI = GetComponent<EnemyAI>();
-        Destroy(enemyAI);
+        if (enemyAI) Destroy(enemyAI);
 
         var rigidbody = GetComponent<Rigidbody2D>();
-        Destroy(rigidbody);
+        if (rigidbody) Destroy(rigidbody);
 
         var collider = GetComponent<Collider2D>();
-        Destroy(collider);
+        if (collider) Destroy(collider);
 
         // Play death animation
         var animator = GetComponent<Animator>();
-        animator.SetBool("IsDead", true);
+        if (animator)
+        {
+            animator.SetBool("IsDead", true);
+        }
 
         // Destroy self in 2 seconds
         Destroy(gameObject, 2f);

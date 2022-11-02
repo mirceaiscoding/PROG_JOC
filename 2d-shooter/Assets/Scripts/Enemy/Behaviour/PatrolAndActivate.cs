@@ -20,8 +20,12 @@ public class PatrolAndActivate : EnemyBehaviour
     // True if enemy is in activated mode
     bool isActivated = false;
 
+    // Animator of the enemy
+    Animator animator;
+
     public override void Init(EnemyAI enemyAI)
     {
+        animator = enemyAI.gameObject.GetComponent<Animator>();
         patrol = Instantiate(patrol);
         patrol.Init(enemyAI);
     }
@@ -56,8 +60,10 @@ public class PatrolAndActivate : EnemyBehaviour
                 enemyAI.SetCurrentEnemyBehaviur(activatedBehaviour);   
 
                 // Update animation
-                var animator = enemyAI.gameObject.GetComponent<Animator>();
-                animator.SetBool("IsInChaseMode", true);
+                if (animator)
+                {
+                    animator.SetBool("IsInChaseMode", true);
+                }
              
             }
         }

@@ -20,9 +20,13 @@ public class Movement : MonoBehaviour
     // Sprite renderer used to flip the sprite based on horizontal movement
     SpriteRenderer spriteRenderer;
 
+    // Animator used to update animation
+    Animator animator;
+
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
     }
 
     // Move towards a position with moveSpeed
@@ -76,7 +80,6 @@ public class Movement : MonoBehaviour
         if (rigidbody)
         {
             // Update animation depending on velocity
-            var animator = GetComponent<Animator>();
             if (animator)
             {
                 if (rigidbody.velocity.magnitude > 0.1f)
@@ -85,14 +88,14 @@ public class Movement : MonoBehaviour
                 } else {
                     animator.SetBool("IsMoving", false);
                 }
+            }
 
-                if (rigidbody.velocity.x > 0) {
-                    // normal
-                    spriteRenderer.flipX = false;
-                } else if (rigidbody.velocity.x < 0) {
-                    // moving to the left -> flip
-                    spriteRenderer.flipX = true;
-                }
+            if (rigidbody.velocity.x > 0) {
+                // normal
+                spriteRenderer.flipX = false;
+            } else if (rigidbody.velocity.x < 0) {
+                // moving to the left -> flip
+                spriteRenderer.flipX = true;
             }
         }
     }
