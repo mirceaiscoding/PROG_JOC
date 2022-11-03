@@ -22,7 +22,10 @@ public class EnemyAI : MonoBehaviour
 
         currentBehaviour.Init(this);
 
-        InvokeRepeating("InvokeRepetableBehaviour", 0, currentBehaviour.GetRepetableBehaviourCooldown());
+        if (currentBehaviour.GetRepetableBehaviourCooldown() > 0)
+        {
+            InvokeRepeating("InvokeRepetableBehaviour", 0, currentBehaviour.GetRepetableBehaviourCooldown());
+        }
     }
 
     // On fixed update call the enemyBehaviour think method
