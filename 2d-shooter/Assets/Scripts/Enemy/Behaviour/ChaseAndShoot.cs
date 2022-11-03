@@ -27,6 +27,9 @@ public class ChaseAndShoot : EnemyBehaviour
 
     public override void Init(EnemyAI enemyAI)
     {
+        // Instantiate so that multiple enemies don't use the same chase instance
+        chase = Instantiate(chase);
+
         movement = enemyAI.gameObject.GetComponent<Movement>();
         animator = enemyAI.gameObject.GetComponent<Animator>();
         attack = enemyAI.gameObject.GetComponent<EnemyRangedAttack>();
