@@ -10,13 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 6400794743976402621}
   - component: {fileID: 5840335613881752774}
-  - component: {fileID: 8746390759632072981}
   - component: {fileID: 9106099326813293782}
   - component: {fileID: 5616141168791235616}
   - component: {fileID: 1386099377}
-  m_Layer: 0
+  - component: {fileID: 3196701748054703329}
+  m_Layer: 9
   m_Name: Fireball
-  m_TagString: Untagged
+  m_TagString: Enemy Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -88,24 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8746390759632072981
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1417148439819355756}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 896a17278e8e9451ab96bc70547a4d69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetTag: Player
-  rigidbody: {fileID: 9106099326813293782}
-  destroyBulletAnimation: {fileID: 4133103405512876340, guid: ed601b9c8e3cc40afbafba1add8f0465, type: 3}
-  enemyHitAnimation: {fileID: 4133103405512876340, guid: 7bc9a6260fe52420da088f6be40f6a28, type: 3}
-  knockbackSpeed: 3
-  knockbackTime: 0.3
 --- !u!50 &9106099326813293782
 Rigidbody2D:
   serializedVersion: 4
@@ -163,3 +145,20 @@ CircleCollider2D:
   m_Offset: {x: 0.36552143, y: 0.045689583}
   serializedVersion: 2
   m_Radius: 0.29941654
+--- !u!114 &3196701748054703329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417148439819355756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38dfc519c1cd84610b74b0515174dae5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigidbody: {fileID: 9106099326813293782}
+  destroyBulletAnimation: {fileID: 4133103405512876340, guid: ed601b9c8e3cc40afbafba1add8f0465, type: 3}
+  enemyHitAnimation: {fileID: 4133103405512876340, guid: 7bc9a6260fe52420da088f6be40f6a28, type: 3}
+  knockbackSpeed: 0
+  knockbackTime: 0

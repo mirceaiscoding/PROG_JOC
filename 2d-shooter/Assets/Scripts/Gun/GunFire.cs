@@ -19,6 +19,21 @@ public class GunFire : MonoBehaviour
     // The speed of the bullet. Set in Unity Editor. Defaults to 10
     public float fireForce = 10.0f;
 
+    // The bullet modifiers.
+    public List<Powerup> bulletModifiers = new List<Powerup>();
+
+    //The number of bullets shot when the gun fires
+    private int BulletsFired = 1;
+
+    //Number of degrees between bullets shot at the same time
+    private int BulletSpread = 10;
+
+    //Increase the number of bullets fired
+    public void AddShots(int nr)
+    {
+        BulletsFired += nr;
+    }
+
     void Update()
     {
         updateMousePosition();
@@ -41,14 +56,26 @@ public class GunFire : MonoBehaviour
         Vector2 aimDirection = mousePosition - (Vector2)transform.position;
         float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(Vector3.forward * (aimAngle-90));
-
     }
 
     //Spawns a bullet then makes it move to the right of the spawn point (where the mouse is pointed)
     public void Fire()
     {
-        GameObject projectile = Instantiate(bullet, firePoint.position, firePoint.rotation);
-        projectile.GetComponent<Rigidbody2D>().AddForce(firePoint.right * fireForce, ForceMode2D.Impulse);
+        //Shoot multiple bullets at the same time in a cone
+        for (int i = 0; i < BulletsFired; i++){
+
+            //create a bullet
+            GameObject projectile = Instantiate(bullet, firePoint.position, Quaternion.Euler(0, 0, BulletSpread*( ((float) BulletsFired-1) / 2 - i ))*firePoint.rotation) as GameObject;
+
+            //add all the powerups to the bullet
+            foreach (Powerup bulletModifier in bulletModifiers)
+            {
+                bulletModifier.Apply(projectile);
+            }
+
+            //fire the bullet
+            projectile.GetComponent<Rigidbody2D>().velocity = (Quaternion.Euler(0, 0, BulletSpread*( ((float) BulletsFired-1) / 2 - i )) * firePoint.right) * fireForce;
+        }
     }
 }
 
