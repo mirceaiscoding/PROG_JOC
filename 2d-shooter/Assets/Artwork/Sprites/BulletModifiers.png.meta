@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e7489e40475fe44c192bdf81888f8cce
+guid: 4f522c3cdf6f44f698a495f9a53508d6
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,7 +117,49 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bullet Modifiers_0
+      name: BulletModifiers_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 744b0aa3aff6d49a881a491dcb96616c
+      internalID: 940886301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BulletModifiers_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 746a9967acfbf4efc87c5b052cfeb81c
+      internalID: 596546335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BulletModifiers_2
       rect:
         serializedVersion: 2
         x: 0
@@ -131,14 +173,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 165ee8eed70374221b0806e0603a0704
-      internalID: -1837838741
+      spriteID: 7aa6ea50fadd04f60960c6a0f3039f5b
+      internalID: -1072134661
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bullet Modifiers_1
+      name: BulletModifiers_3
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a5e1016f00e34ef5be1c1fc8d4f7575
+      internalID: 552805537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BulletModifiers_4
       rect:
         serializedVersion: 2
         x: 0
@@ -152,8 +215,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 69a9447f9ac12443ca00019ecba30fe3
-      internalID: 396752775
+      spriteID: 1e6bc259d249249f9bb01bb8803f8b6a
+      internalID: 769625261
       vertices: []
       indices: 
       edges: []
@@ -169,8 +232,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Bullet Modifiers_0: -1837838741
-      Bullet Modifiers_1: 396752775
+      BulletModifiers_2: -1072134661
+      BulletModifiers_1: 596546335
+      BulletModifiers_3: 552805537
+      BulletModifiers_0: 940886301
+      BulletModifiers_4: 769625261
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

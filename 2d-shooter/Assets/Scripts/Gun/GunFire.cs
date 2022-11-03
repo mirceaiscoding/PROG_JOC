@@ -65,7 +65,7 @@ public class GunFire : MonoBehaviour
         for (int i = 0; i < BulletsFired; i++){
 
             //create a bullet
-            GameObject projectile = Instantiate(bullet, firePoint.position, firePoint.rotation) as GameObject;
+            GameObject projectile = Instantiate(bullet, firePoint.position, Quaternion.Euler(0, 0, BulletSpread*( ((float) BulletsFired-1) / 2 - i ))*firePoint.rotation) as GameObject;
 
             //add all the powerups to the bullet
             foreach (Powerup bulletModifier in bulletModifiers)

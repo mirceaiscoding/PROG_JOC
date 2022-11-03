@@ -20,28 +20,77 @@ public class BulletMovement : MonoBehaviour
     // Time for which to knockback the enemy. Set in Unity Editor
     public float knockbackTime;
 
-    // True if the bullet bounces off of walls
-    bool isBouncy = false;
-
-    //Number of times the bullet can bounce off
-    int bouncesRemaining = 0;
+    private Transform homingTarget;
 
     // Updates velocity
     Vector2 lastVelocity;
 
+    // True if the bullet bounces off of walls
+    bool isBouncy = false;
+
+    // Number of times the bullet can bounce off
+    int bouncesRemaining = 0;
+
+    // True if the bullet follows enemies
+    bool isHoming = false;
+
+    // How fast can a homing bullet turn
+    float homingSpeed = 300;
+
+    // The minimum distance from an enemy, after which the bullet starts homing
+    float homingDistance = 5;
+
     public void SetIsBouncy(bool flag)
     {
         isBouncy = flag;
-        
-        //change the bounciness of the PhysicsMaterial2d from the regular collider 
-        this.GetComponents<Collider2D>()[0].sharedMaterial.bounciness = 1;
 
         //number of times the bullet is supposed to bounce
         bouncesRemaining = 4;
     }
 
+    public void SetIsHoming(bool flag)
+    {
+        isHoming = flag;
+    }
+
+    void Start(){
+        //stop the rigidbody of the bullet from rotating
+        rigidbody.freezeRotation = true;
+    }
+
     void Update() {
+        
+    }
+
+    void FixedUpdate(){
         lastVelocity = rigidbody.velocity;
+
+        if(isHoming){
+
+            //find the nearest enemy and rotate the bullet towards it
+            homingTarget = GameObject.FindGameObjectWithTag("Enemy").transform;
+            float distance = Vector3.Distance (rigidbody.position, homingTarget.position);
+            if(distance <= homingDistance){
+
+                //re-enable rigidbody rotation 
+                rigidbody.freezeRotation = false;
+
+                //start rotating the bullet
+                Vector2 direction = (Vector2)homingTarget.position - rigidbody.position;
+                direction.Normalize();
+                float rotateAmount = Vector3.Cross(direction, transform.right).z;
+                rigidbody.angularVelocity = -rotateAmount * homingSpeed;
+
+                //bullet moves in the direction it is rotated
+                var speed = lastVelocity.magnitude;
+                rigidbody.velocity = transform.right*speed;
+            }
+            else{
+                rigidbody.freezeRotation = true;
+            }
+
+        }
+        
     }
 
     //Regular collider of the bullet(without trigger)
@@ -49,13 +98,22 @@ public class BulletMovement : MonoBehaviour
 
         switch (other.gameObject.tag) 
         {
-            // Bullet hits a wall. Destroys itself
+            // Bullet hits a wall. Destroys itself if it isn't bouncy
             case "Wall":
 
                 if (isBouncy && bouncesRemaining > 0)
                 {
                     bouncesRemaining-=1;
-                    
+
+                    //change the direction the bullet id facing when it hits a wall
+                    var direction = Vector3.Reflect(lastVelocity.normalized, other.contacts[0].normal);
+                    Quaternion newRotation = Quaternion.LookRotation(Vector3.forward, Quaternion.Euler(0, 0, 90) * direction);
+                    transform.rotation = newRotation;
+
+                    //bullet moves in the new direction
+                    var speed = lastVelocity.magnitude;
+                    rigidbody.velocity = transform.right*speed;
+
                 } else {
                     destroyBullet();
                 }
