@@ -64,6 +64,12 @@ public class PatrolAndActivate : EnemyBehaviour
                 {
                     animator.SetBool("IsInChaseMode", true);
                 }
+
+                // Turn on activated light
+                var activatedLight =  enemyAI.gameObject.GetComponent<UnityEngine.Rendering.Universal.Light2D>();
+                if (activatedLight) {
+                    activatedLight.intensity = 0.8f;
+                }
              
             }
         }
