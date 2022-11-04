@@ -35,6 +35,12 @@ public class HandleDeath : MonoBehaviour
             animator.SetBool("IsDead", true);
         }
 
+        // Turn off activated light
+        var activatedLight =  enemyAI.gameObject.GetComponent<UnityEngine.Rendering.Universal.Light2D>();
+        if (activatedLight) {
+            activatedLight.intensity = 0f;
+        }
+
         // Destroy self in 2 seconds
         Destroy(gameObject, 2f);
 
