@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6166561446783894713}
   m_Layer: 7
   m_Name: Gun
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,9 +98,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de7ee8a8cb43a4a55aae114b40e2d500, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneCamera: {fileID: 0}
   bullet: {fileID: 330192647624864147, guid: 37d41248fcf3d4553b34622946d7137d, type: 3}
   firePoint: {fileID: 6166561447678775856}
   fireForce: 10
+  bulletModifiers: []
 --- !u!1 &6166561447678775859
 GameObject:
   m_ObjectHideFlags: 0

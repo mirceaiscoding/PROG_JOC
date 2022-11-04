@@ -15,4 +15,4 @@ MonoBehaviour:
   stoppingDistance: 1
   nextWaypointDistance: 1
   repetableBehaviourCooldown: 5
-  patrolDistance: 3
+  patrolDistance: 5

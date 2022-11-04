@@ -6,7 +6,9 @@ TagManager:
   tags:
   - Wall
   - Enemy
-  - Coins
+  - Bullet
+  - Item
+  - Enemy Bullet
   layers:
   - Default
   - TransparentFX
@@ -16,9 +18,9 @@ TagManager:
   - UI
   - Enemies
   - Player
-  - 
-  - 
-  - 
+  - Bullets
+  - Enemy Bullets
+  - Objects
   - 
   - 
   - 
@@ -46,4 +48,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 2298602449
+    locked: 0
+  - name: UI
+    uniqueID: 166035625
     locked: 0

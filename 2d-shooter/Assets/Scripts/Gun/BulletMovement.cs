@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BulletMovement : MonoBehaviour
 {
-
     // RigidBody of bullet. Set in Unity Editor
     public Rigidbody2D rigidbody;
 
@@ -20,25 +19,133 @@ public class BulletMovement : MonoBehaviour
     // Time for which to knockback the enemy. Set in Unity Editor
     public float knockbackTime;
 
-    // Called when the bullet enters another 2d collider
+    private GameObject homingTarget;
+
+    // Updates velocity
+    Vector2 lastVelocity;
+
+    // True if the bullet bounces off of walls
+    bool isBouncy = false;
+
+    // Number of times the bullet can bounce off
+    int bouncesRemaining = 0;
+
+    // True if the bullet follows enemies
+    bool isHoming = false;
+
+    // How fast can a homing bullet turn
+    float homingSpeed = 300;
+
+    // The minimum distance from an enemy, after which the bullet starts homing
+    float homingDistance = 5;
+
+    public void SetIsBouncy(bool flag)
+    {
+        isBouncy = flag;
+
+        // Number of times the bullet is supposed to bounce
+        bouncesRemaining = 4;
+    }
+
+    public void SetIsHoming(bool flag)
+    {
+        isHoming = flag;
+    }
+
+    void Start(){
+        // Stop the rigidbody of the bullet from rotating
+        rigidbody.freezeRotation = true;
+    }
+
+    void Update() {
+        
+    }
+
+    void FixedUpdate(){
+        lastVelocity = rigidbody.velocity;
+
+        if(isHoming){
+
+            // Find the nearest enemy and rotate the bullet towards it
+            homingTarget = GameObject.FindGameObjectWithTag("Enemy");
+            if (!homingTarget) {
+                rigidbody.freezeRotation = true;
+                return;
+            }
+
+            float distance = Vector3.Distance (rigidbody.position, homingTarget.transform.position);
+            if (distance <= homingDistance) {
+
+                // Re-enable rigidbody rotation 
+                rigidbody.freezeRotation = false;
+
+                // Start rotating the bullet
+                Vector2 direction = (Vector2)homingTarget.transform.position - rigidbody.position;
+                direction.Normalize();
+                float rotateAmount = Vector3.Cross(direction, transform.right).z;
+                rigidbody.angularVelocity = -rotateAmount * homingSpeed;
+
+                // Bullet moves in the direction it is rotated
+                var speed = lastVelocity.magnitude;
+                rigidbody.velocity = transform.right*speed;
+            }
+            else {
+                rigidbody.freezeRotation = true;
+            }
+
+        }
+        
+    }
+
+    // Regular collider of the bullet(without trigger)
+    private void OnCollisionEnter2D(Collision2D other) {
+
+        switch (other.gameObject.tag) 
+        {
+            // Bullet hits a wall. Destroys itself if it isn't bouncy
+            case "Wall":
+
+                if (isBouncy && bouncesRemaining > 0)
+                {
+                    bouncesRemaining-=1;
+
+                    // Change the direction the bullet id facing when it hits a wall
+                    var direction = Vector3.Reflect(lastVelocity.normalized, other.contacts[0].normal);
+                    Quaternion newRotation = Quaternion.LookRotation(Vector3.forward, Quaternion.Euler(0, 0, 90) * direction);
+                    transform.rotation = newRotation;
+
+                    // Bullet moves in the new direction
+                    var speed = lastVelocity.magnitude;
+                    rigidbody.velocity = transform.right*speed;
+
+                } else {
+                    destroyBullet();
+                }
+                break;
+        }
+    }
+
+    // Collider with trigger
     void OnTriggerEnter2D(Collider2D other)
     {
         switch (other.gameObject.tag) 
         {
-            // Bullet hits a wall. destroy itself
-            case "Wall":
-                destroyBullet();
-                break;
+            
 
             // Bullet hits an enemy. Damage the enemy and destroy the bullet.
             case "Enemy":
-                // TODO: Damage enemy
-
-                // Knockback enemy
-                Vector2 knockbackVelocity = (other.transform.position - transform.position).normalized * knockbackSpeed;
+                // Damage enemy
+                var enemyHealth = other.gameObject.GetComponent<Health>();
+                enemyHealth.TakeDamage(1);
 
                 var movement = other.gameObject.GetComponent<Movement>();
-                movement.Knockback(knockbackVelocity, knockbackTime);
+                if (movement)
+                {
+                    // Knockback enemy
+                    Vector2 knockbackVelocity = (other.transform.position - transform.position).normalized * knockbackSpeed;
+
+                    movement.Knockback(knockbackVelocity, knockbackTime);
+                }
 
                 // Destroy bullet with hit animation
                 destroyBullet(true);
@@ -58,5 +165,4 @@ public class BulletMovement : MonoBehaviour
         }
         Destroy(gameObject);
     }
-
 }

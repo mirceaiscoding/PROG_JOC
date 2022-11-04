@@ -62,7 +62,7 @@ public class Patrol : EnemyBehaviour
     {
         if (seeker.IsDone()) 
         {
-            point = Random.insideUnitCircle.normalized * patrolDistance;
+            point = enemyAI.transform.position + ((Vector3) Random.insideUnitCircle.normalized * patrolDistance);
             
             // Calculate path
             seeker.StartPath(enemyAI.transform.position, point, OnPathComplete);
