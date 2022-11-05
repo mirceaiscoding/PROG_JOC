@@ -24,4 +24,4 @@ Follow these steps:
 
 - <b>IMPORTANT</b>: Don't forget to checkout the branch before starting to work on the issue
 - When you are done, go to your branch on github and create a pull reuest
-- Add me (@mirceaiscoding) as the reviewer
+- Add me (@mirceaiscoding) as the reviewers
