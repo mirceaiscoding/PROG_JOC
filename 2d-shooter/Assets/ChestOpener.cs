@@ -19,7 +19,7 @@ public class ChestOpener : MonoBehaviour
     }
     */
 
-    /
+    
     public GameObject ChestClose, ChestOpen;
 
 
@@ -34,6 +34,7 @@ public class ChestOpener : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if (Input.GetKeyDown("E"))
         {
             if (ChestClose == true)
@@ -47,6 +48,8 @@ public class ChestOpener : MonoBehaviour
                 ChestOpen.SetActive(false);
             }
         }
+        */
+
         /*
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
@@ -68,7 +71,7 @@ public class ChestOpener : MonoBehaviour
         }
         */
     }
-    /*
+    
     void OnTriggerEnter2D(Collider2D collision)
     {
         ChestClose.SetActive(false);
@@ -80,6 +83,4 @@ public class ChestOpener : MonoBehaviour
         ChestClose.SetActive(true);
         ChestOpen.SetActive(false);
     }
-    */
-    
 }
