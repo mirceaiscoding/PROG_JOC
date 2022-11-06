@@ -1162,6 +1162,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1664349600}
   - component: {fileID: 1664349599}
+  - component: {fileID: 1664349601}
   m_Layer: 0
   m_Name: chestClose
   m_TagString: Untagged
@@ -1234,8 +1235,24 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2002702537}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &1664349601
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664349598}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.21
 --- !u!1 &1697860871
 GameObject:
   m_ObjectHideFlags: 0
@@ -1318,7 +1335,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2002702537}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1799354164
 PrefabInstance:
@@ -1377,6 +1394,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f06e55908144f7439dce049c83d7267, type: 3}
+--- !u!4 &1823875185 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1459907991541080099, guid: ed2c766e107c5ea40baf39b3eb1814e7, type: 3}
+  m_PrefabInstance: {fileID: 2064301507}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1904478855
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1445,6 +1467,7 @@ GameObject:
   - component: {fileID: 2002702537}
   - component: {fileID: 2002702536}
   - component: {fileID: 2002702538}
+  - component: {fileID: 2002702539}
   m_Layer: 0
   m_Name: ChestOpener
   m_TagString: Untagged
@@ -1464,8 +1487,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6384118e528ee0f448d1e96d0eca9ea7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChestClose: {fileID: 1664349598}
-  ChestOpen: {fileID: 1697860871}
+  isOpen: 0
+  animator: {fileID: 0}
 --- !u!4 &2002702537
 Transform:
   m_ObjectHideFlags: 0
@@ -1473,11 +1496,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2002702535}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.475749, y: -6.626184, z: 0.06189775}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 7.475749, y: -6.626184, z: 0.061897755}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1823875185}
   - {fileID: 1664349600}
   - {fileID: 1697860873}
   m_Father: {fileID: 0}
@@ -1509,6 +1533,119 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5123138, y: 0.89115715}
   m_EdgeRadius: 0
+--- !u!95 &2002702539
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2002702535}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1001 &2064301507
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2002702537}
+    m_Modifications:
+    - target: {fileID: 1459907991541080099, guid: ed2c766e107c5ea40baf39b3eb1814e7, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1459907991541080099, guid: ed2c766e107c5ea40baf39b3eb1814e7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1459907991541080099, guid: ed2c766e107c5ea40baf39b3eb1814e7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1459907991541080099, guid: ed2c766e107c5ea40baf39b3eb1814e7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1459907991541080099, guid: ed2c766e107c5ea40baf39b3eb1814e7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1459907991541080099, guid: ed2c766e107c5ea40baf39b3eb1814e7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1459907991541080099, guid: ed2c766e107c5ea40baf39b3eb1814e7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1459907991541080099, guid: ed2c766e107c5ea40baf39b3eb1814e7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1459907991541080099, guid: ed2c766e107c5ea40baf39b3eb1814e7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1459907991541080099, guid: ed2c766e107c5ea40baf39b3eb1814e7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1459907991541080099, guid: ed2c766e107c5ea40baf39b3eb1814e7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2523422838520082155, guid: ed2c766e107c5ea40baf39b3eb1814e7, type: 3}
+      propertyPath: interactKey
+      value: 101
+      objectReference: {fileID: 0}
+    - target: {fileID: 2523422838520082155, guid: ed2c766e107c5ea40baf39b3eb1814e7, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2523422838520082155, guid: ed2c766e107c5ea40baf39b3eb1814e7, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2523422838520082155, guid: ed2c766e107c5ea40baf39b3eb1814e7, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2002702536}
+    - target: {fileID: 2523422838520082155, guid: ed2c766e107c5ea40baf39b3eb1814e7, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2523422838520082155, guid: ed2c766e107c5ea40baf39b3eb1814e7, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OpenChest
+      objectReference: {fileID: 0}
+    - target: {fileID: 2523422838520082155, guid: ed2c766e107c5ea40baf39b3eb1814e7, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ChestOpener, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2523422838520082155, guid: ed2c766e107c5ea40baf39b3eb1814e7, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3841470390465610757, guid: ed2c766e107c5ea40baf39b3eb1814e7, type: 3}
+      propertyPath: m_Radius
+      value: 1.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726330882040704678, guid: ed2c766e107c5ea40baf39b3eb1814e7, type: 3}
+      propertyPath: m_Name
+      value: InteractableCircle
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ed2c766e107c5ea40baf39b3eb1814e7, type: 3}
 --- !u!114 &2084042605 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5701657534041634971, guid: 473b32327d798469b887943cf9b0568c, type: 3}
