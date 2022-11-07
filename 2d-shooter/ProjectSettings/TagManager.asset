@@ -9,6 +9,8 @@ TagManager:
   - Bullet
   - Item
   - Enemy Bullet
+  - Coins
+  - Chests
   layers:
   - Default
   - TransparentFX
