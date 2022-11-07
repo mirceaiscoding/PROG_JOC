@@ -4,21 +4,6 @@ using UnityEngine;
 
 public class ChestOpener : MonoBehaviour
 {
-    /*
-    public bool isOpen;
-    public Animator animator;
-
-    public void OpenChest()
-    {
-        if (!isOpen)
-        {
-            isOpen = true;
-            Debug.Log("Chest now open...");
-            animator.SetBool("IsOpen", isOpen);
-        }
-    }
-    */
-
     // Distance from which the player can open and close the chest
     public float interactionDistance = 3f;
 
