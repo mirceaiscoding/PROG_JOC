@@ -19,6 +19,10 @@ public class ChestOpener : MonoBehaviour
     }
     */
 
+    // Distance from which the player can open and close the chest
+    public float interactionDistance = 3f;
+
+    public GameObject Player;
     
     public GameObject ChestClose, ChestOpen;
 
@@ -28,59 +32,28 @@ public class ChestOpener : MonoBehaviour
     {
         ChestClose.SetActive(true);
         ChestOpen.SetActive(false);
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        /*
-        if (Input.GetKeyDown("E"))
+    
+        if (Vector2.Distance(Player.transform.position, transform.position) < interactionDistance
+            && Input.GetKeyDown(KeyCode.E))
         {
-            if (ChestClose == true)
+            if (ChestClose.activeSelf)
             {
+                // close chest
                 ChestClose.SetActive(false);
                 ChestOpen.SetActive(true);
             }
             else
             {
+                // open chest
                 ChestClose.SetActive(true);
                 ChestOpen.SetActive(false);
             }
         }
-        */
 
-        /*
-        float moveX = Input.GetAxisRaw("Horizontal");
-        float moveY = Input.GetAxisRaw("Vertical");
-        moveDirection = new Vector2(moveX, moveY).normalized;
-
-        // Update variable for animator to switch between idle and running.
-        animator.SetFloat("Speed", Mathf.Abs(moveX) + Mathf.Abs(moveY));
-
-        // Flip player based on horizontal movement
-        if (moveX > 0)
-        {
-            // normal
-            spriteRenderer.flipX = false;
-        }
-        else if (moveX < 0)
-        {
-            // moving to the left -> flip
-            spriteRenderer.flipX = true;
-        }
-        */
-    }
-    
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        ChestClose.SetActive(false);
-        ChestOpen.SetActive(true);
-    }
-
-    void OnTriggerExit2D(Collider2D collision)
-    {
-        ChestClose.SetActive(true);
-        ChestOpen.SetActive(false);
     }
 }
