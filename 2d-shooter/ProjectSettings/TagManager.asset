@@ -10,6 +10,7 @@ TagManager:
   - Item
   - Enemy Bullet
   - Coins
+  - Chests
   layers:
   - Default
   - TransparentFX
@@ -22,7 +23,7 @@ TagManager:
   - Bullets
   - Enemy Bullets
   - Objects
-  - Flying Enemies
+  - 
   - 
   - 
   - 
@@ -45,7 +46,7 @@ TagManager:
   - 
   m_SortingLayers:
   - name: Background
-    uniqueID: 47195765
+    uniqueID: 851412831
     locked: 0
   - name: Default
     uniqueID: 0
