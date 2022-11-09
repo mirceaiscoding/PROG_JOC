@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: 772415020}
   - component: {fileID: 4610601391665418807}
   - component: {fileID: 237312348}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: Bat Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  drawGizmos: 0
+  drawGizmos: 1
   detailedGizmos: 0
   startEndModifier:
     addPoints: 0
@@ -69,7 +69,7 @@ MonoBehaviour:
   traversableTags: -1
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
-    value: -1
+    value: 2
 --- !u!50 &3001662281356033521
 Rigidbody2D:
   serializedVersion: 4
