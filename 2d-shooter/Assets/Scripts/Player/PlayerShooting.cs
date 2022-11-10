@@ -36,17 +36,21 @@ public class PlayerShooting : MonoBehaviour
         Shoot();
     }
 
-    // When left-clicking uses the Fire method of the gun
+    // When left-clicking uses the CheckCharging method of the gun
     void Shoot()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0)){
+
             if (canShoot())
             {
                 // Add cooldown to nextShotTime
                 nextShotTime = Time.time + shotCooldown;
                 
-                // Fire gun
-                gun.Fire();
+                gun.CheckCharging(false);
             }
+        }
+        if (Input.GetMouseButtonUp(0)){
+            gun.CheckCharging(true);
+        }
     }
 }

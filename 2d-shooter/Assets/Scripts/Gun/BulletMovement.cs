@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BulletMovement : MonoBehaviour
 {
+
     // RigidBody of bullet. Set in Unity Editor
     public Rigidbody2D rigidbody;
 
@@ -19,8 +20,6 @@ public class BulletMovement : MonoBehaviour
     // Time for which to knockback the enemy. Set in Unity Editor
     public float knockbackTime;
 
-    private GameObject homingTarget;
-
     // Updates velocity
     Vector2 lastVelocity;
 
@@ -34,10 +33,10 @@ public class BulletMovement : MonoBehaviour
     bool isHoming = false;
 
     // How fast can a homing bullet turn
-    float homingSpeed = 300;
+    float homingSpeed = 400;
 
     // The minimum distance from an enemy, after which the bullet starts homing
-    float homingDistance = 5;
+    float homingDistance = 7;
 
     public void SetIsBouncy(bool flag)
     {
@@ -55,6 +54,9 @@ public class BulletMovement : MonoBehaviour
     void Start(){
         // Stop the rigidbody of the bullet from rotating
         rigidbody.freezeRotation = true;
+
+        // Add the size of the bullet to homing distance so bigger bullets still have homing
+        homingDistance += transform.localScale.x;
     }
 
     void Update() {
@@ -67,14 +69,27 @@ public class BulletMovement : MonoBehaviour
         if(isHoming){
 
             // Find the nearest enemy and rotate the bullet towards it
-            homingTarget = GameObject.FindGameObjectWithTag("Enemy");
+
+            GameObject[] enemyList;
+            enemyList = GameObject.FindGameObjectsWithTag("Enemy");
+            GameObject homingTarget = null;
+            float minDistance = Mathf.Infinity;
+            Vector3 position = transform.position;
+            foreach (GameObject enemy in enemyList)
+            {
+                Vector3 diff = enemy.transform.position - position;
+                float curDistance = diff.sqrMagnitude;
+                if (curDistance < minDistance)
+                {
+                    homingTarget = enemy;
+                    minDistance = curDistance;
+                }
+            }
             if (!homingTarget) {
                 rigidbody.freezeRotation = true;
                 return;
             }
-
-            float distance = Vector3.Distance (rigidbody.position, homingTarget.transform.position);
-            if (distance <= homingDistance) {
+            if (minDistance <= homingDistance) {
 
                 // Re-enable rigidbody rotation 
                 rigidbody.freezeRotation = false;
@@ -89,7 +104,7 @@ public class BulletMovement : MonoBehaviour
                 var speed = lastVelocity.magnitude;
                 rigidbody.velocity = transform.right*speed;
             }
-            else {
+            else{
                 rigidbody.freezeRotation = true;
             }
 
