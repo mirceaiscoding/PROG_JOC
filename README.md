@@ -13,6 +13,8 @@ Follow these steps:
 
 You may see an empty scene.. To open a scene go to the `Scenes` folder and double click on a scene.
 
+‼️ IMPORTANT: Change the display from `Free aspect` to `Full HD` in order to see the game and the UI as intended.
+
 ## Contributing
 
 Follow these steps:
