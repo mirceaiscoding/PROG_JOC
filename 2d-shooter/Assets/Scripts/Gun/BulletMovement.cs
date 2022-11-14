@@ -36,7 +36,10 @@ public class BulletMovement : MonoBehaviour
     float homingSpeed = 400;
 
     // The minimum distance from an enemy, after which the bullet starts homing
-    float homingDistance = 7;
+    float homingDistance = 8;
+
+    // Damage dealt to an enemy
+    public float bulletDamage = 1;
 
     public void SetIsBouncy(bool flag)
     {
@@ -151,7 +154,7 @@ public class BulletMovement : MonoBehaviour
             case "Enemy":
                 // Damage enemy
                 var enemyHealth = other.gameObject.GetComponent<Health>();
-                enemyHealth.TakeDamage(1);
+                enemyHealth.TakeDamage(bulletDamage);
 
                 var movement = other.gameObject.GetComponent<Movement>();
                 if (movement)

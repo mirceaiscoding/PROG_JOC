@@ -28,11 +28,14 @@ public class GunFire : MonoBehaviour
     // Number of degrees between bullets shot at the same time
     private int bulletSpread = 10;
 
-    // Variable that checks if the gun can be charged before firing
-    private bool canBeCharged = true;
+    // 
+    private bool hasChargedShot = false;
+
+    // 
+    private bool hasRepeatingShot = false;
 
     // How much is the next shot charged (starts at -1 because it also increases by 1 when the player clicks the mouse button to begin charging)
-    private int chargeLevel = -1;
+    private int currentChargeLevel = -1;
 
     // The maximum charge level
     private int maxChargeLevel = 3;
@@ -41,6 +44,18 @@ public class GunFire : MonoBehaviour
     public void AddShots(int nr)
     {
         bulletsFired += nr;
+    }
+
+    // 
+    public void setChargedShot(bool flag)
+    {
+        hasChargedShot = flag;
+    }
+
+    // 
+    public void setRepeatingShot(bool flag)
+    {
+        hasRepeatingShot = flag;
     }
 
     void Update()
@@ -66,27 +81,31 @@ public class GunFire : MonoBehaviour
         float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(Vector3.forward * (aimAngle-90));
     }
-    
-    //Spawns a bullet then makes it move to the right of the spawn point (where the mouse is pointed)
-    public void Fire()
-    {
-        //Shoot multiple bullets at the same time in a cone
-        for (int i = 0; i < bulletsFired; i++){
 
-            //create a bullet
+    // Spawns a bullet then makes it move to the right of the spawn point (where the mouse is pointed)
+    public void Fire(int chargeLevel)
+    {
+        // Shoot multiple bullets at the same time in a cone
+        for (int i = 0; i < bulletsFired; i++)
+        {
+            // Create a bullet
             GameObject projectile = Instantiate(bullet, firePoint.position, Quaternion.Euler(0, 0, bulletSpread*( ((float) bulletsFired-1) / 2 - i ))*firePoint.rotation) as GameObject;
 
-            //
-            projectile.transform.localScale *= (1 + Mathf.Max(chargeLevel, 0));
-            projectile.transform.GetChild(0).GetComponent<UnityEngine.Rendering.Universal.Light2D>().pointLightOuterRadius *= (1 + Mathf.Max(chargeLevel, 0));
+            if(hasChargedShot)
+            {
+                // Change the size, damage and lighting of the bullet based on charge level
+                projectile.transform.localScale *= (1 + Mathf.Max(chargeLevel, 0));
+                projectile.transform.GetChild(0).GetComponent<UnityEngine.Rendering.Universal.Light2D>().pointLightOuterRadius *= (1 + Mathf.Max(chargeLevel, 0));
+                projectile.GetComponent<BulletMovement>().bulletDamage *= (1 + Mathf.Max(chargeLevel, 0));
+            }
 
-            //add all the powerups to the bullet
+            // Add all the powerups to the bullet
             foreach (Powerup bulletModifier in bulletModifiers)
             {
                 bulletModifier.Apply(projectile);
             }
 
-            //fire the bullet
+            // Fire the bullet
             projectile.GetComponent<Rigidbody2D>().velocity = (Quaternion.Euler(0, 0, bulletSpread*( ((float) bulletsFired-1) / 2 - i )) * firePoint.right) * fireForce;
         }
     }
@@ -97,23 +116,39 @@ public class GunFire : MonoBehaviour
         // If the mouse button is released check if the gun was charged at least once
         if(buttonReleased)
         {
-            if(chargeLevel >= 0)
+            if(currentChargeLevel >= 0)
             {
-                Fire();
-                chargeLevel = -1;
+                if(hasRepeatingShot)
+                {
+                    StartCoroutine(RepeatingShot(currentChargeLevel));
+                }
+                else
+                {
+                    Fire(currentChargeLevel);
+                }
+                currentChargeLevel = -1;
             }
         }
         // If the mouse button is held and the gun can be charged add a charge, otherwise just fire a bullet
         else
         {
-            if(canBeCharged)
+            if(hasChargedShot || hasRepeatingShot)
             {
-                chargeLevel = Mathf.Min(chargeLevel + 1, maxChargeLevel);
+                currentChargeLevel = Mathf.Min(currentChargeLevel + 1, maxChargeLevel);
             }
             else
             {
-                Fire();
+                Fire(0);
             }
+        }
+    }
+
+    public IEnumerator RepeatingShot(int chargeLevel)
+    {
+        for (int i = 0; i <= chargeLevel; i++)
+        {
+            Fire(chargeLevel);
+            yield return new WaitForSeconds(0.05f);
         }
     }
 }
