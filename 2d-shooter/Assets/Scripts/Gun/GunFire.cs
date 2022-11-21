@@ -169,7 +169,7 @@ public class GunFire : MonoBehaviour
                     //Show the charge bar
                     ChargeBar.SetActive(true);
                     
-                    // Change the color of the charge
+                    // Change the color of a charge level to green
                     ChargeBar.transform.GetChild(Mathf.Min(currentChargeLevel, maxChargeLevel - 1)).GetChild(0).GetComponent<SpriteRenderer>().color = new Color(0f, 0.6f, 0f, 1.0f);
                 }
 
@@ -184,6 +184,7 @@ public class GunFire : MonoBehaviour
         }
     }
 
+    // Fire multiple bullets with delay between them
     public IEnumerator RepeatingShot(int chargeLevel)
     {
         for (int i = 0; i <= chargeLevel; i++)
