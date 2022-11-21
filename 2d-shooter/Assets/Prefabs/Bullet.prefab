@@ -100,7 +100,7 @@ MonoBehaviour:
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 0.3
+  m_PointLightOuterRadius: 0.2
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -217,6 +217,7 @@ MonoBehaviour:
   enemyHitAnimation: {fileID: 4133103405512876340, guid: 7bc9a6260fe52420da088f6be40f6a28, type: 3}
   knockbackSpeed: 3
   knockbackTime: 0.3
+  bulletDamage: 1
 --- !u!50 &7593334635748129577
 Rigidbody2D:
   serializedVersion: 4

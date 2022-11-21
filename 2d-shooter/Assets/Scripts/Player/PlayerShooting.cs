@@ -12,7 +12,7 @@ public class PlayerShooting : MonoBehaviour
     public GunFire gun;
 
     // Cooldown time between shots. Set in Unity Editor
-    public float shotCooldown = 0.5F;
+    public float shotCooldown = 0.75f;
 
     // Time after which the player can shoot. 
     private float nextShotTime;
@@ -36,17 +36,39 @@ public class PlayerShooting : MonoBehaviour
         Shoot();
     }
 
-    // When left-clicking uses the Fire method of the gun
+    // If the gun is blocked by a wall it shouldn't be able to fire
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.tag == "Wall")
+        {
+            gun.gunIsObscured = true;
+        }
+    }
+
+    // After the gun is no longer blocked by a wall it can fire again
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if(other.tag == "Wall")
+        {
+            gun.gunIsObscured = false;
+        }
+    }
+
+    // When left-clicking uses the CheckCharging method of the gun
     void Shoot()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0)){
+
             if (canShoot())
             {
                 // Add cooldown to nextShotTime
                 nextShotTime = Time.time + shotCooldown;
                 
-                // Fire gun
-                gun.Fire();
+                gun.CheckCharging(false);
             }
+        }
+        if (Input.GetMouseButtonUp(0)){
+            gun.CheckCharging(true);
+        }
     }
 }
