@@ -5,6 +5,7 @@ using UnityEngine;
 public class HandleDeath : MonoBehaviour
 {
     public Health enemyHealth;
+    public GameObject coinPrefab;
 
     private void OnEnable()
     {
@@ -41,8 +42,15 @@ public class HandleDeath : MonoBehaviour
             activatedLight.intensity = 0f;
         }
 
+        dropCoins();
+
         // Destroy self in 2 seconds
         Destroy(gameObject, 2f);
 
+    }
+
+    public void dropCoins()
+    {
+        Instantiate(coinPrefab, transform.position, Quaternion.identity);
     }
 }
