@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 54d21f6ece3b46479f0c328f8c6007e0, type: 3}
-  m_Name: Gold
+  m_Name: Red
   m_EditorClassIdentifier: 
   colorMode: 3
   topLeft: {r: 1, g: 0.39230514, b: 0.3411765, a: 1}
