@@ -18,7 +18,6 @@ public class HandleDeath : MonoBehaviour
 
     public void Die()
     {
-
         var enemyAI = GetComponent<EnemyAI>();
         if (enemyAI) Destroy(enemyAI);
 
@@ -43,6 +42,5 @@ public class HandleDeath : MonoBehaviour
 
         // Destroy self in 2 seconds
         Destroy(gameObject, 2f);
-
     }
 }
