@@ -245,6 +245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHealth: {fileID: 772415020}
+  coinPrefab: {fileID: 3428310788825091984, guid: 1da391a89acdc435fa789d7233de8387, type: 3}
 --- !u!114 &237312348
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -599,6 +599,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHealth: {fileID: 1404988793987669023}
+  coinPrefab: {fileID: 7858441176340531045, guid: 3f06e55908144f7439dce049c83d7267, type: 3}
 --- !u!95 &6736559316942717623
 Animator:
   serializedVersion: 4
