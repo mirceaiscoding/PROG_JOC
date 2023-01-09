@@ -10,6 +10,7 @@ public class ApplyBulletModifier : MonoBehaviour
     //when th player touches the item, add the powerup to bullet modifiers(list in GunFire.cs)
     public void OnTriggerEnter2D(Collider2D other){
         if(other.gameObject.tag == "Player"){
+            ItemDescriptionManager.instance.PrintBulletDescription(gameObject.tag);
             other.gameObject.GetComponent<PlayerShooting>().gun.bulletModifiers.Add(power);
             Destroy(gameObject);
         }

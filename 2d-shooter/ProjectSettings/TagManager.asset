@@ -11,6 +11,11 @@ TagManager:
   - Enemy Bullet
   - Coins
   - Chests
+  - Charged Shot
+  - Bouncy Shot
+  - Repeating Shot
+  - Homing Shot
+  - Triple Shot
   layers:
   - Default
   - TransparentFX
