@@ -1525,20 +1525,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da23398e538d8f443ba83790ae466384, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1593452906263726055
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1593452906263726042}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aebc54f6ac324c24ca2438902435dd29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  heartPrefab: {fileID: 8724913140245789321, guid: 8d986da4d67affb4da3db00822724666, type: 3}
-  playerHealth: {fileID: 1593452906263726043}
 --- !u!1001 &3187797213604296342
 PrefabInstance:
   m_ObjectHideFlags: 0
