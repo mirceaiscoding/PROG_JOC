@@ -2130,42 +2130,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4564882116570768753, guid: a373492342c3e45a4ba3eb82ed23436d, type: 3}
-      propertyPath: m_Color.b
-      value: 0.2830189
-      objectReference: {fileID: 0}
-    - target: {fileID: 4564882116570768753, guid: a373492342c3e45a4ba3eb82ed23436d, type: 3}
-      propertyPath: m_Color.g
-      value: 0.15886438
-      objectReference: {fileID: 0}
-    - target: {fileID: 4564882116570768753, guid: a373492342c3e45a4ba3eb82ed23436d, type: 3}
-      propertyPath: m_Color.r
-      value: 0.19272727
-      objectReference: {fileID: 0}
-    - target: {fileID: 4564882116570768753, guid: a373492342c3e45a4ba3eb82ed23436d, type: 3}
-      propertyPath: m_Intensity
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4564882116570768753, guid: a373492342c3e45a4ba3eb82ed23436d, type: 3}
-      propertyPath: m_ApplyToSortingLayers.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4564882116570768753, guid: a373492342c3e45a4ba3eb82ed23436d, type: 3}
-      propertyPath: m_ApplyToSortingLayers.Array.data[0]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4564882116570768753, guid: a373492342c3e45a4ba3eb82ed23436d, type: 3}
-      propertyPath: m_ApplyToSortingLayers.Array.data[1]
-      value: 851412831
-      objectReference: {fileID: 0}
-    - target: {fileID: 4564882116570768753, guid: a373492342c3e45a4ba3eb82ed23436d, type: 3}
-      propertyPath: m_ApplyToSortingLayers.Array.data[2]
-      value: 166035625
-      objectReference: {fileID: 0}
-    - target: {fileID: 4564882116570768753, guid: a373492342c3e45a4ba3eb82ed23436d, type: 3}
-      propertyPath: m_ApplyToSortingLayers.Array.data[3]
-      value: 166035625
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a373492342c3e45a4ba3eb82ed23436d, type: 3}
 --- !u!1001 &1498350395
