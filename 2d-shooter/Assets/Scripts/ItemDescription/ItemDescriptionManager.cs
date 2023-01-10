@@ -18,7 +18,6 @@ public class ItemDescriptionManager : MonoBehaviour
         StartCoroutine(DestroyAfterDelay());
     }
 
-    // Update is called once per frame
     public void PrintCoinsValue(int coinValue)
     {
         if (coinValue == 1)

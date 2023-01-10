@@ -11,6 +11,7 @@ public class ApplyBulletModifier : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D other){
         if(other.gameObject.tag == "Player"){
             ItemDescriptionManager.instance.PrintBulletDescription(gameObject.tag);
+            GunDescriptionManager.instance.PrintBulletDescription(gameObject.tag);
             other.gameObject.GetComponent<PlayerShooting>().gun.bulletModifiers.Add(power);
             Destroy(gameObject);
         }

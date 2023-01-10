@@ -11,6 +11,7 @@ public class ApplyGunModifier : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D other){
         if(other.gameObject.tag == "Player"){
             ItemDescriptionManager.instance.PrintGunDescription(gameObject.tag);
+            GunDescriptionManager.instance.PrintGunDescription(gameObject.tag);
             power.Apply(other.gameObject.GetComponent<PlayerShooting>().gun.gameObject);
             Destroy(gameObject);
         }
