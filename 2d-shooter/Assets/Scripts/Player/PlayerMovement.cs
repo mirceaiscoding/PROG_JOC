@@ -14,16 +14,29 @@ public class PlayerMovement : MonoBehaviour
     // Animator used to set the current animation. Set in Unity Editor
     public Animator animator;
 
+    // Referance to Health script
+    public Health health;
+
     // Sprite renderer used to flip the player based on horizontal movement. Set in Unity Editor
     public SpriteRenderer spriteRenderer;
 
     // Direction of the player. Set by user inputs
     private Vector2 moveDirection;
 
+    private void OnEnable()
+    {
+        health.OnDeath += DisablePlayerMovement;
+    }
+
+    private void OnDisable()
+    {
+        health.OnDeath -= DisablePlayerMovement;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-
+        EnablePlayerMovement();
     }
     // Update is called once per frame
     void Update()
@@ -68,5 +81,17 @@ public class PlayerMovement : MonoBehaviour
         {
             Destroy(other.gameObject);
         }
+    }
+
+    private void DisablePlayerMovement()
+    {
+        animator.enabled = false;
+        rigidbody.bodyType = RigidbodyType2D.Static;
+    }
+
+    private void EnablePlayerMovement()
+    {
+        animator.enabled = true;
+        rigidbody.bodyType = RigidbodyType2D.Dynamic;
     }
 }
