@@ -632,6 +632,14 @@ PrefabInstance:
       propertyPath: pauseMenu
       value: 
       objectReference: {fileID: 545944101}
+    - target: {fileID: 1593452906263726064, guid: b2a5e46d2400c4f838012b252899a9b4, type: 3}
+      propertyPath: text
+      value: 
+      objectReference: {fileID: 1209728958}
+    - target: {fileID: 4130385289270818555, guid: b2a5e46d2400c4f838012b252899a9b4, type: 3}
+      propertyPath: text
+      value: 
+      objectReference: {fileID: 1997790647}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2a5e46d2400c4f838012b252899a9b4, type: 3}
 --- !u!114 &212653762 stripped
@@ -2233,6 +2241,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1148461611}
   m_CullTransparentMesh: 1
+--- !u!114 &1209728958 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1980041093, guid: f63f4a3106b634a3886acbc674e61aec, type: 3}
+  m_PrefabInstance: {fileID: 2082294409}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1220293018
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3910,6 +3929,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3001662281356033533, guid: 123df3deff3524cca86cf4c2c2c66569, type: 3}
   m_PrefabInstance: {fileID: 1864995257}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1997790647 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1199176613, guid: f63f4a3106b634a3886acbc674e61aec, type: 3}
+  m_PrefabInstance: {fileID: 2082294409}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2082294409
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3918,6 +3948,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 197226557, guid: f63f4a3106b634a3886acbc674e61aec, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1199176612, guid: f63f4a3106b634a3886acbc674e61aec, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1980041092, guid: f63f4a3106b634a3886acbc674e61aec, type: 3}
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
