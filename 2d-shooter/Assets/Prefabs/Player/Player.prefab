@@ -675,6 +675,8 @@ GameObject:
   - component: {fileID: 1593452906263726053}
   - component: {fileID: 5293782218233136980}
   - component: {fileID: 1593452906263726055}
+  - component: {fileID: 4130385289270818555}
+  - component: {fileID: 1593452906263726064}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -792,6 +794,9 @@ MonoBehaviour:
   animator: {fileID: 982501746}
   health: {fileID: 1593452906263726043}
   spriteRenderer: {fileID: 1593452905208830821}
+  baseSpeed: 0
+  maxSpeed: 12
+  godModeSpeed: 0
 --- !u!61 &901243203
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -867,6 +872,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 8
   maxHealth: 8
+  godMode: 0
 --- !u!114 &1593452906263726053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -905,6 +911,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
+--- !u!114 &4130385289270818555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1593452905208830819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dd899ff24d01d44c9b7dd7cb64940cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 0}
+  seconds: 7
+--- !u!114 &1593452906263726064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1593452905208830819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ddecb8f8fecc954d956f089105412bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 0}
+  seconds: 7
 --- !u!1 &7272841622441640036
 GameObject:
   m_ObjectHideFlags: 0

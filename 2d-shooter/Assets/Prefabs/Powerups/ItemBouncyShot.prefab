@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2059341163}
   m_Layer: 0
   m_Name: ItemBouncyShot
-  m_TagString: Item
+  m_TagString: Bouncy Shot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
