@@ -10,21 +10,34 @@ public class Health : MonoBehaviour
 
     public float health, maxHealth;
 
+    public bool godMode = false;
+
     void Start()
     {
         health = maxHealth;
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            godMode = !godMode;
+        }
+    }
+
     public void TakeDamage(float amount)
     {
-        health -= amount;
-        OnDamaged?.Invoke();
-
-        if (health <= 0)
+        if (!godMode)
         {
-            health = 0;
-            Debug.Log("You're dead");
-            OnDeath?.Invoke();
+            health -= amount;
+            OnDamaged?.Invoke();
+
+            if (health <= 0)
+            {
+                health = 0;
+                Debug.Log("You're dead");
+                OnDeath?.Invoke();
+            }
         }
     }
 }

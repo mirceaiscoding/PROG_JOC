@@ -23,6 +23,15 @@ public class PlayerMovement : MonoBehaviour
     // Direction of the player. Set by user inputs
     private Vector2 moveDirection;
 
+    // The speed before using god mode
+    public float baseSpeed;
+
+    // Maximum speed for player using god mode
+    public float maxSpeed = 12f;
+
+    // Increasing speed for god mode
+    public bool godModeSpeed = false;
+
     private void OnEnable()
     {
         health.OnDeath += DisablePlayerMovement;
@@ -37,11 +46,24 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         EnablePlayerMovement();
+        baseSpeed = moveSpeed;
     }
     // Update is called once per frame
     void Update()
     {
         updateMoveDirectionFromInputs();
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            godModeSpeed = !godModeSpeed;
+        }
+        if (godModeSpeed)
+        {
+            moveSpeed = Mathf.Clamp(moveSpeed + 0.5f, 0f, maxSpeed);
+        }
+        else
+        {
+            moveSpeed = Mathf.Clamp(baseSpeed, 0f, maxSpeed);
+        }
     }
     // Independent of framerate
     void FixedUpdate()
