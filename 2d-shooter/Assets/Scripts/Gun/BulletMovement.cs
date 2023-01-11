@@ -68,6 +68,7 @@ public class BulletMovement : MonoBehaviour
 
     void FixedUpdate(){
         lastVelocity = rigidbody.velocity;
+        
 
         if(isHoming){
 

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerShooting : MonoBehaviour
 {
@@ -12,7 +13,13 @@ public class PlayerShooting : MonoBehaviour
     public GunFire gun;
 
     // Cooldown time between shots. Set in Unity Editor
-    public float shotCooldown = 0.75f;
+    public float shotCooldown = 1f;
+
+    // Multiplier increased by shop items. As it increases, the gun should fire bullets more often.
+    [HideInInspector] public float attackSpeedMultiplier = 1f;
+
+    // Ui text used for showing the attackSpeedMultiplier
+    public TextMeshProUGUI multiplierText;
 
     // Time after which the player can shoot. 
     private float nextShotTime;
@@ -22,6 +29,8 @@ public class PlayerShooting : MonoBehaviour
     {
         // Initialize nextShotTime to the current time.
         nextShotTime = Time.time;
+
+        multiplierText.text = "x" + attackSpeedMultiplier.ToString();
     }
 
     // If the player can shoot the current time must be greater than nextShotTime
@@ -62,7 +71,7 @@ public class PlayerShooting : MonoBehaviour
             if (canShoot())
             {
                 // Add cooldown to nextShotTime
-                nextShotTime = Time.time + shotCooldown;
+                nextShotTime = Time.time + shotCooldown/attackSpeedMultiplier;
                 
                 gun.CheckCharging(false);
             }
