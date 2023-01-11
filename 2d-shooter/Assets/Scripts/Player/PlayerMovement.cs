@@ -75,14 +75,6 @@ public class PlayerMovement : MonoBehaviour
         rigidbody.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Coins"))
-        {
-            Destroy(other.gameObject);
-        }
-    }
-
     private void DisablePlayerMovement()
     {
         animator.enabled = false;

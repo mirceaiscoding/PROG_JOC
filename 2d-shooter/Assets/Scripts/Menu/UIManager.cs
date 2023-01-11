@@ -24,13 +24,25 @@ public class UIManager : MonoBehaviour
         gameOverMenu.SetActive(true);
     }
 
+    public void DeleteAllGameObjects(){
+        GameObject player = GameObject.Find("Player");
+        GameObject ui = GameObject.Find("Hearts UI");
+        GameObject coins = GameObject.Find("Coin counter");
+        Destroy(player);
+        Destroy(ui);
+        Destroy(coins);
+     }
+
     public void RestartLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(1);
+        Invoke("DeleteAllGameObjects", 0.2f);
+
     }
 
     public void GoToMainMenu()
     {
         SceneManager.LoadScene(0);
+        Invoke("DeleteAllGameObjects", 0.2f);
     }
 }

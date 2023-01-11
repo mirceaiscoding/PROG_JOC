@@ -49,6 +49,7 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(0);
+        Invoke("DeleteAllGameObjects", 0.2f);
     }
 
     public void QuitGame()
@@ -56,4 +57,13 @@ public class PauseMenu : MonoBehaviour
         Debug.Log("QUIT GAME");
         Application.Quit();
     }
+
+    public void DeleteAllGameObjects(){
+        GameObject player = GameObject.Find("Player");
+        GameObject ui = GameObject.Find("Hearts UI");
+        GameObject coins = GameObject.Find("Coin counter");
+        Destroy(player);
+        Destroy(ui);
+        Destroy(coins);
+     }
 }
