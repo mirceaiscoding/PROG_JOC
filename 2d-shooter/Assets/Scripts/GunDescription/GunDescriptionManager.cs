@@ -6,16 +6,13 @@ using TMPro;
 
 public class GunDescriptionManager : MonoBehaviour
 {
-    public static GunDescriptionManager instance;
+    
     public TextMeshProUGUI text;
     public float seconds = 7f;
     // Start is called before the first frame update
     void Start()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
+        
         StartCoroutine(DestroyAfterDelay());
     }
 
