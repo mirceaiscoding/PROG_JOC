@@ -24,17 +24,25 @@ public class PlayerShooting : MonoBehaviour
     // Time after which the player can shoot. 
     private float nextShotTime;
 
-    // Start is called before the first frame update
+    // Keeps track of whether the player is in god mode or not
+    private bool godMode = false;
+
+    // Keeps track of the initial shot cooldown
+    private float initialShotCooldown;
+
     void Start()
     {
         // Initialize nextShotTime to the current time.
         nextShotTime = Time.time;
 
+        // Store the initial shot cooldown
+        initialShotCooldown = shotCooldown;
+
         multiplierText.text = "x" + attackSpeedMultiplier.ToString();
     }
 
     // If the player can shoot the current time must be greater than nextShotTime
-    private bool canShoot() 
+    private bool canShoot()
     {
         return Time.time > nextShotTime;
     }
@@ -42,22 +50,31 @@ public class PlayerShooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Check if the F1 key is pressed
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            // toggle god mode
+            godMode = !godMode;
+            // increase/decrease shotCooldown as per godmode on/off
+            shotCooldown = godMode ? initialShotCooldown / 4 : initialShotCooldown;
+        }
+
         Shoot();
     }
 
     // If the gun is blocked by a wall it shouldn't be able to fire
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "Wall")
+        if (other.tag == "Wall")
         {
             gun.gunIsObscured = true;
         }
     }
 
-    // After the gun is no longer blocked by a wall it can fire again
+    // After the gun is no longer blocked by a wall it
     void OnTriggerExit2D(Collider2D other)
     {
-        if(other.tag == "Wall")
+        if (other.tag == "Wall")
         {
             gun.gunIsObscured = false;
         }
