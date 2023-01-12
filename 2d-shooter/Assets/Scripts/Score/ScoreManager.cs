@@ -16,7 +16,9 @@ public class ScoreManager : MonoBehaviour
             instance = this;
         }
     }
-
+    public int GetScore(){
+        return this.score;
+    }
     public void ChangeScore(int coinValue)
     {
         score += coinValue;

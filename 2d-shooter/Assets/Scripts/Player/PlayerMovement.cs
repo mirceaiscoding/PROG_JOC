@@ -1,12 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
 
     // Speed of player. Set in Unity Editor
-    public float moveSpeed;
+    public float moveSpeed = 5;
+
+    // Multiplier increased by shop items. As it increases, the player should move faster.
+    [HideInInspector] public float movementSpeedMultiplier = 1f;
+
+    // Ui text used for showing the movementSpeedMultiplier
+    public TextMeshProUGUI multiplierText;
 
     // RigidBody of player. Set in Unity Editor
     public Rigidbody2D rigidbody;
@@ -45,6 +52,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        multiplierText.text = "x" + movementSpeedMultiplier.ToString();
         EnablePlayerMovement();
         baseSpeed = moveSpeed;
     }
@@ -94,7 +102,7 @@ public class PlayerMovement : MonoBehaviour
     // Move the player based on the direction and speed
     void MovePlayer() 
     {
-        rigidbody.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
+        rigidbody.velocity = new Vector2(moveDirection.x * (movementSpeedMultiplier * moveSpeed), moveDirection.y * (movementSpeedMultiplier * moveSpeed));
     }
 
     private void DisablePlayerMovement()
