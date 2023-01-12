@@ -27,7 +27,7 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
-        if (!godMode)
+        if (!godMode || this.gameObject.tag != "Player")
         {
             health -= amount;
             OnDamaged?.Invoke();
