@@ -28,9 +28,11 @@ public class UIManager : MonoBehaviour
         GameObject player = GameObject.Find("Player");
         GameObject ui = GameObject.Find("Hearts UI");
         GameObject coins = GameObject.Find("Coin counter");
+        GameObject stats = GameObject.Find("PlayerStats");
         Destroy(player);
         Destroy(ui);
         Destroy(coins);
+        Destroy(stats);
      }
 
     public void RestartLevel()
