@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3380368517069494688}
   m_Layer: 0
   m_Name: ItemRepeatingShot
-  m_TagString: Untagged
+  m_TagString: Repeating Shot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
