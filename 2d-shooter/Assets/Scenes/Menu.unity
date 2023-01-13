@@ -2985,6 +2985,8 @@ MonoBehaviour:
   gameVolumeTextValue: {fileID: 382558590}
   musicVolumeSlider: {fileID: 436603203}
   musicVolumeTextValue: {fileID: 321951167}
+  defaultGameVolume: 1
+  defaultMusicVolume: 1
   confirmationPrompt: {fileID: 1563589221}
   backgroundMusic: {fileID: 583594118}
 --- !u!1 &916456781
@@ -5393,28 +5395,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1775352637}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 829921073}
+        m_TargetAssemblyTypeName: VolumeManager, Assembly-CSharp
+        m_MethodName: ResetButton
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1728594679}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Audio
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1690641257

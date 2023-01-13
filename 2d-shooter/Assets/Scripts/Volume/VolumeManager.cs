@@ -12,6 +12,9 @@ public class VolumeManager : MonoBehaviour
     [SerializeField] private Slider musicVolumeSlider = null;
     [SerializeField] private TMP_Text musicVolumeTextValue = null;
 
+    [SerializeField] private float defaultGameVolume = 1.0f;
+    [SerializeField] private float defaultMusicVolume = 1.0f;
+
     [SerializeField] private GameObject confirmationPrompt = null;
     [SerializeField] private GameObject backgroundMusic;
 
@@ -38,10 +41,21 @@ public class VolumeManager : MonoBehaviour
         musicVolumeTextValue.text = volume.ToString("0.0");
     }
 
-    public void SaveButton()
+    public void VolumeApply()
     {
         PlayerPrefs.SetFloat("musicVolume", backgroundMusic.GetComponent<AudioSource>().volume);
         StartCoroutine(ConfirmationBox());
+    }
+
+    public void ResetButton(string MenuType)
+    {
+        if (MenuType == "Audio")
+        {
+            AudioListener.volume = defaultMusicVolume;
+            musicVolumeSlider.value = defaultMusicVolume;
+            gameVolumeTextValue.text = defaultMusicVolume.ToString("0.0");
+            VolumeApply();
+        }
     }
 
     public IEnumerator ConfirmationBox()
