@@ -1,0 +1,53 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.UI;
+using UnityEngine;
+using TMPro;
+
+public class VolumeManager : MonoBehaviour
+{
+    [SerializeField] private Slider gameVolumeSlider = null;
+    [SerializeField] private TMP_Text gameVolumeTextValue = null;
+
+    [SerializeField] private Slider musicVolumeSlider = null;
+    [SerializeField] private TMP_Text musicVolumeTextValue = null;
+
+    [SerializeField] private GameObject confirmationPrompt = null;
+    [SerializeField] private GameObject backgroundMusic;
+
+    private void Start()
+    {
+        gameVolumeSlider.value = PlayerPrefs.GetFloat("gameVolume", 1);
+        gameVolumeTextValue.text = gameVolumeSlider.value.ToString("0.0");
+        AudioListener.volume = gameVolumeSlider.value;
+
+        musicVolumeSlider.value = PlayerPrefs.GetFloat("musicVolume", 1);
+        musicVolumeTextValue.text = musicVolumeSlider.value.ToString("0.0");
+        backgroundMusic.GetComponent<AudioSource>().volume = musicVolumeSlider.value;
+    }
+
+    public void GameVolumeSlider(float volume)
+    {
+        AudioListener.volume = volume;
+        gameVolumeTextValue.text = volume.ToString("0.0");
+    }
+
+    public void MusicVolumeSlider(float volume)
+    {
+        backgroundMusic.GetComponent<AudioSource>().volume = volume;
+        musicVolumeTextValue.text = volume.ToString("0.0");
+    }
+
+    public void SaveButton()
+    {
+        PlayerPrefs.SetFloat("musicVolume", backgroundMusic.GetComponent<AudioSource>().volume);
+        StartCoroutine(ConfirmationBox());
+    }
+
+    public IEnumerator ConfirmationBox()
+    {
+        confirmationPrompt.SetActive(true);
+        yield return new WaitForSeconds(2);
+        confirmationPrompt.SetActive(false);
+    }
+}
