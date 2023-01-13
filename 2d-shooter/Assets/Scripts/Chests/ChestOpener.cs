@@ -8,9 +8,8 @@ public class ChestOpener : MonoBehaviour
     public float interactionDistance = 3f;
 
     public GameObject Player;
-    
     public GameObject ChestClose, ChestOpen;
-
+    public GameObject[] possibleLoot;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +21,6 @@ public class ChestOpener : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    
         if (Vector2.Distance(Player.transform.position, transform.position) < interactionDistance
             && Input.GetKeyDown(KeyCode.E))
         {
@@ -31,6 +29,7 @@ public class ChestOpener : MonoBehaviour
                 // close chest
                 ChestClose.SetActive(false);
                 ChestOpen.SetActive(true);
+                DropLoot();
             }
             else
             {
@@ -39,6 +38,36 @@ public class ChestOpener : MonoBehaviour
                 ChestOpen.SetActive(false);
             }
         }
+    }
 
+    void DropLoot()
+    {
+        // Randomly select an item from the possible loot
+        int randomIndex = Random.Range(0, possibleLoot.Length);
+
+        // Position at the chest
+        Vector3 spawnPosition = transform.position;
+
+        if (Player.transform.position.x > transform.position.x)
+        {
+            spawnPosition.x -= 1f; // move the position to the left of the chest
+        }
+        else if (Player.transform.position.x < transform.position.x)
+        {
+            spawnPosition.x += 1f; // move the position to the right of the chest
+        }
+        else if (Player.transform.position.y > transform.position.y)
+        {
+            spawnPosition.y += 1f; // move the position above the chest
+        }
+        else
+        {
+            spawnPosition.y -= 1f; // move the position below the chest
+        }
+
+        spawnPosition.x += Random.Range(-0.85f, 0.85f); // Add a random offset to the x position
+        spawnPosition.y += Random.Range(-0.85f, 0.85f); // Add a random offset to the y position
+
+        GameObject droppedItem = Instantiate(possibleLoot[randomIndex], spawnPosition, Quaternion.identity);
     }
 }
