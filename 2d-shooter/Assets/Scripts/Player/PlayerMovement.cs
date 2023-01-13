@@ -39,6 +39,8 @@ public class PlayerMovement : MonoBehaviour
     // Increasing speed for god mode
     public bool godModeSpeed = false;
 
+    [SerializeField] private AudioSource walkSoundEffect;
+
     private void OnEnable()
     {
         health.OnDeath += DisablePlayerMovement;
@@ -80,7 +82,8 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // Get moveDirection from inputs
-    void updateMoveDirectionFromInputs() {
+    void updateMoveDirectionFromInputs()
+    {
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
         moveDirection = new Vector2(moveX, moveY).normalized;
@@ -89,14 +92,23 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("Speed", Mathf.Abs(moveX) + Mathf.Abs(moveY));
 
         // Flip player based on horizontal movement
-        if (moveX > 0) {
+        if (moveX > 0)
+        {
             // normal
             spriteRenderer.flipX = false;
-        } else if (moveX < 0) {
+        }
+        else if (moveX < 0)
+        {
             // moving to the left -> flip
             spriteRenderer.flipX = true;
         }
-
+        if (Mathf.Abs(moveX) > 0 || Mathf.Abs(moveY) > 0)
+        {
+            if (!walkSoundEffect.isPlaying)
+            {
+                walkSoundEffect.Play();
+            }
+        }
     }
 
     // Move the player based on the direction and speed
