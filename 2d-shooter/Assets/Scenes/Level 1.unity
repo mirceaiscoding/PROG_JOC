@@ -1940,6 +1940,46 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 1014817895}
+    - target: {fileID: 2280687495274990575, guid: 0b08257fc832b4e14b50a82f45712331, type: 3}
+      propertyPath: possibleLoot.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2280687495274990575, guid: 0b08257fc832b4e14b50a82f45712331, type: 3}
+      propertyPath: possibleCoins.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2280687495274990575, guid: 0b08257fc832b4e14b50a82f45712331, type: 3}
+      propertyPath: possibleLoot.Array.data[0]
+      value: 
+      objectReference: {fileID: 4668818081531898780, guid: ccf4c7af6f99c40fabaec43b8c694809, type: 3}
+    - target: {fileID: 2280687495274990575, guid: 0b08257fc832b4e14b50a82f45712331, type: 3}
+      propertyPath: possibleLoot.Array.data[1]
+      value: 
+      objectReference: {fileID: 930300621469422733, guid: 8d14d3d96f12a477f9652634dac59754, type: 3}
+    - target: {fileID: 2280687495274990575, guid: 0b08257fc832b4e14b50a82f45712331, type: 3}
+      propertyPath: possibleLoot.Array.data[2]
+      value: 
+      objectReference: {fileID: 3185438643984562374, guid: af3c33545c2354d6ebfbb654a897aa66, type: 3}
+    - target: {fileID: 2280687495274990575, guid: 0b08257fc832b4e14b50a82f45712331, type: 3}
+      propertyPath: possibleLoot.Array.data[3]
+      value: 
+      objectReference: {fileID: 3380368517069494689, guid: fba5989e7a51f422faa3cbcc7af3f963, type: 3}
+    - target: {fileID: 2280687495274990575, guid: 0b08257fc832b4e14b50a82f45712331, type: 3}
+      propertyPath: possibleLoot.Array.data[4]
+      value: 
+      objectReference: {fileID: 4004630959208605244, guid: 4f8c11f25f72c4722b1600dec32b34ef, type: 3}
+    - target: {fileID: 2280687495274990575, guid: 0b08257fc832b4e14b50a82f45712331, type: 3}
+      propertyPath: possibleWeapons.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2280687495274990575, guid: 0b08257fc832b4e14b50a82f45712331, type: 3}
+      propertyPath: possibleCoins.Array.data[0]
+      value: 
+      objectReference: {fileID: 930300621469422733, guid: 8d14d3d96f12a477f9652634dac59754, type: 3}
+    - target: {fileID: 2280687495274990575, guid: 0b08257fc832b4e14b50a82f45712331, type: 3}
+      propertyPath: possibleWeapons.Array.data[0]
+      value: 
+      objectReference: {fileID: 1642317543}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b08257fc832b4e14b50a82f45712331, type: 3}
 --- !u!1 &1014817895 stripped
@@ -3586,6 +3626,11 @@ CanvasRenderer:
 Transform:
   m_CorrespondingSourceObject: {fileID: 3001662281356033533, guid: 123df3deff3524cca86cf4c2c2c66569, type: 3}
   m_PrefabInstance: {fileID: 911768876}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1642317543 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4668818081531898780, guid: ccf4c7af6f99c40fabaec43b8c694809, type: 3}
+  m_PrefabInstance: {fileID: 32729770}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1644436366
 GameObject:
