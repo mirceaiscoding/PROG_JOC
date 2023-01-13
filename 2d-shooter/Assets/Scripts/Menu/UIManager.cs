@@ -8,6 +8,8 @@ public class UIManager : MonoBehaviour
     public GameObject gameOverMenu;
 
     public Health health;
+    
+    private bool restartPressed = false;
 
     private void OnEnable()
     {
@@ -37,8 +39,11 @@ public class UIManager : MonoBehaviour
 
     public void RestartLevel()
     {
-        SceneManager.LoadScene(1);
-        Invoke("DeleteAllGameObjects", 0.2f);
+        if(!restartPressed){
+            restartPressed = true;
+            SceneManager.LoadScene(1);
+            Invoke("DeleteAllGameObjects", 0.2f);
+        }
 
     }
 
