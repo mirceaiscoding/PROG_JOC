@@ -108,6 +108,8 @@ public class PlayerMovement : MonoBehaviour
             {
                 walkSoundEffect.Play();
             }
+        } else {
+            walkSoundEffect.Stop();
         }
     }
 
