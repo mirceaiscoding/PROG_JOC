@@ -11,6 +11,8 @@ public class ChestOpener : MonoBehaviour
     public GameObject ChestClose, ChestOpen;
     public GameObject[] possibleLoot;
 
+    private bool wasOpened = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,14 +28,19 @@ public class ChestOpener : MonoBehaviour
         {
             if (ChestClose.activeSelf)
             {
-                // close chest
+                // open chest
                 ChestClose.SetActive(false);
                 ChestOpen.SetActive(true);
-                DropLoot();
+
+                // if it was never opened drop loot
+                if (!wasOpened) {
+                    wasOpened = true;
+                    DropLoot();
+                }
             }
             else
             {
-                // open chest
+                // close chest
                 ChestClose.SetActive(true);
                 ChestOpen.SetActive(false);
             }
