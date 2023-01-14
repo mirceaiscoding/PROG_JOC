@@ -13,7 +13,7 @@ public class Health : MonoBehaviour
     public bool godMode = false;
 
     // Sound when player is die
-    public AudioSource deathSound;
+    public AudioSource playerDeathSound;
 
     void Start()
     {
@@ -54,7 +54,21 @@ public class Health : MonoBehaviour
 
                 if (this.gameObject.tag == "Player" && health == 0)
                 {
-                    deathSound.Play();
+                    playerDeathSound.Play();
+                }
+                else if (this.gameObject.tag == "Enemy" && health == 0)
+                {
+                    GameObject level1Enemies = GameObject.Find("Level 1 Enemies");
+                    GameObject level2Enemies = GameObject.Find("Level 2 Enemies");
+
+                    if (level1Enemies != null)
+                    {
+                        level1Enemies.GetComponent<KillEnemySound>().PlayEnemyDeathsSound();
+                    }
+                    else if (level2Enemies != null)
+                    {
+                        level2Enemies.GetComponent<KillEnemySound>().PlayEnemyDeathsSound();
+                    }
                 }
                 health = 0;
                 Debug.Log("You're dead");

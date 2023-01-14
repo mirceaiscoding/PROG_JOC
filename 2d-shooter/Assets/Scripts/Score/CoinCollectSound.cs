@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Level1CoinSound : MonoBehaviour
+public class CoinCollectSound : MonoBehaviour
 {
     public AudioSource coinSound;
 
     // Play the sound when a coin is collected
-    public void PlayCoinSound()
+    public void PlayCoinCollectSound()
     {
         if (!coinSound.isPlaying)
         {

@@ -14,6 +14,8 @@ public class ChestOpener : MonoBehaviour
 
     private bool wasOpened = false;
 
+    public AudioSource chestSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +37,9 @@ public class ChestOpener : MonoBehaviour
                 ChestClose.SetActive(false);
                 ChestOpen.SetActive(true);
 
+                // Play the chest sound
+                chestSound.Play();
+
                 // if it was never opened drop loot
                 if (!wasOpened) {
                     wasOpened = true;
@@ -46,6 +51,9 @@ public class ChestOpener : MonoBehaviour
                 // close chest
                 ChestClose.SetActive(true);
                 ChestOpen.SetActive(false);
+
+                // Play the chest sound
+                chestSound.Play();
             }
         }
     }
