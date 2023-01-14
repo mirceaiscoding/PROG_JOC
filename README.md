@@ -25,14 +25,14 @@ Learn Unity development by creating and manipulating scenes, adding game element
 - Multiple levels with different environments
 
 ## Sprint Reports
-- Goals:
+- _**Goals:**_
   - [Sprint 1 Goals](https://github.com/mirceaiscoding/PROG_JOC/blob/main/Sprint%20Reports/Sprint%20Goals/Goals%20-%20Sprint%201.pdf) :computer:
   - [Sprint 2 Goals](https://github.com/mirceaiscoding/PROG_JOC/blob/main/Sprint%20Reports/Sprint%20Goals/Goals%20-%20Sprint%202.pdf) :computer:
   - [Sprint 3 Goals](https://github.com/mirceaiscoding/PROG_JOC/blob/main/Sprint%20Reports/Sprint%20Goals/Goals%20-%20Sprint%203.pdf) :computer:
   - [Sprint 4 Goals](https://github.com/mirceaiscoding/PROG_JOC/blob/main/Sprint%20Reports/Sprint%20Goals/Goals%20-%20Sprint%204.pdf) :computer:
   - [Sprint 5 Goals](https://github.com/mirceaiscoding/PROG_JOC/blob/main/Sprint%20Reports/Sprint%20Goals/Goals%20-%20Sprint%205.pdf) :computer:
 
-- Achieved Goals:
+- _**Achieved Goals:**_
   - [Sprint 1 Achieved Goals](https://github.com/mirceaiscoding/PROG_JOC/blob/main/Sprint%20Reports/Sprint%20Goals%20Achieved/Sprint%201%20-%20Obiective%20indeplinite.pdf) :white_check_mark:
   - [Sprint 2 Achieved Goals](https://github.com/mirceaiscoding/PROG_JOC/blob/main/Sprint%20Reports/Sprint%20Goals%20Achieved/Sprint%202%20-%20Obiective%20indeplinite.pdf) :white_check_mark:
   - [Sprint 3 Achieved Goals](https://github.com/mirceaiscoding/PROG_JOC/blob/main/Sprint%20Reports/Sprint%20Goals%20Achieved/Sprint%203%20-%20Obiective%20Indeplinite.pdf) :white_check_mark:
@@ -44,7 +44,7 @@ You can find our backlog [(here)](https://github.com/users/mirceaiscoding/projec
 ![image](https://user-images.githubusercontent.com/73616883/212483728-bbda6959-6801-444a-b2a8-d32e1b0efe61.png)
 
 ## Last version
-The stable version of the game can be found on the main branch of this repository.
+The stable version of the game can be found on the `main` branch of this repository.
 
 ## Getting started
 
@@ -60,6 +60,19 @@ Follow these steps:
 You may see an empty scene.. To open a scene go to the `Scenes` folder and double click on a scene.
 
 ‼️ IMPORTANT: Change the display from `Free aspect` to `Full HD` in order to see the game and the UI as intended.
+
+## Contributing
+
+Follow these steps:
+
+- Go to the issues tab and choose a free issue.
+- Create a new issue branch by going to the development section and pressing `create a branch`
+
+<img width="350" alt="image" src="https://user-images.githubusercontent.com/67867765/196921478-43352b45-2e68-4d91-b703-8efbf6d06de3.png">
+
+- <b>IMPORTANT</b>: Don't forget to checkout the branch before starting to work on the issue
+- When you are done, go to your branch on github and create a pull reuest
+- Add @mirceaiscoding as the reviewer
 
 ## Support
 
