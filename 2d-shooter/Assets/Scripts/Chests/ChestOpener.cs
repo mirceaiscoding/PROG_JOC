@@ -7,7 +7,8 @@ public class ChestOpener : MonoBehaviour
     // Distance from which the player can open and close the chest
     public float interactionDistance = 3f;
 
-    public GameObject Player;
+    private GameObject Player;
+
     public GameObject ChestClose, ChestOpen;
     public GameObject[] possibleLoot;
 
@@ -16,6 +17,7 @@ public class ChestOpener : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Player = GameObject.FindGameObjectsWithTag("Player")[0];
         ChestClose.SetActive(true);
         ChestOpen.SetActive(false);
     }
@@ -23,6 +25,7 @@ public class ChestOpener : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Player = GameObject.FindGameObjectsWithTag("Player")[0];
         if (Vector2.Distance(Player.transform.position, transform.position) < interactionDistance
             && Input.GetKeyDown(KeyCode.E))
         {
