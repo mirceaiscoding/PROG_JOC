@@ -12,6 +12,9 @@ public class Health : MonoBehaviour
 
     public bool godMode = false;
 
+    // Sound when player is die
+    public AudioSource deathSound;
+
     void Start()
     {
         health = maxHealth;
@@ -45,10 +48,14 @@ public class Health : MonoBehaviour
                 }
 
                 // if the player dies, save the number of levels completed, enemies killed etc.
-                if(this.gameObject.tag == "Player"){
+                if (this.gameObject.tag == "Player"){
                     this.gameObject.GetComponent<PreviousScore>().SetPreviousScores();
                 }
 
+                if (this.gameObject.tag == "Player" && health == 0)
+                {
+                    deathSound.Play();
+                }
                 health = 0;
                 Debug.Log("You're dead");
                 OnDeath?.Invoke();
