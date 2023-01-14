@@ -26,16 +26,17 @@ Learn Unity development by creating and manipulating scenes, adding game element
 
 ## Sprint Reports
 - Goals:
-  - [Sprint 1 Goals](https://github.com/mirceaiscoding/PROG_JOC/blob/main/Sprint%20Goals/Goals%20-%20Sprint%201.pdf) :computer:
-  - [Sprint 2 Goals](https://github.com/mirceaiscoding/PROG_JOC/blob/main/Sprint%20Goals/Goals%20-%20Sprint%202.pdf) :computer:
-  - [Sprint 3 Goals](https://github.com/mirceaiscoding/PROG_JOC/blob/main/Sprint%20Goals/Goals%20-%20Sprint%203.pdf) :computer:
-  - [Sprint 4 Goals](https://github.com/mirceaiscoding/PROG_JOC/blob/main/Sprint%20Goals/Goals%20-%20Sprint%204.pdf) :computer:
+  - [Sprint 1 Goals](https://github.com/mirceaiscoding/PROG_JOC/blob/main/Sprint%20Reports/Sprint%20Goals/Goals%20-%20Sprint%201.pdf) :computer:
+  - [Sprint 2 Goals](https://github.com/mirceaiscoding/PROG_JOC/blob/main/Sprint%20Reports/Sprint%20Goals/Goals%20-%20Sprint%202.pdf) :computer:
+  - [Sprint 3 Goals](https://github.com/mirceaiscoding/PROG_JOC/blob/main/Sprint%20Reports/Sprint%20Goals/Goals%20-%20Sprint%203.pdf) :computer:
+  - [Sprint 4 Goals](https://github.com/mirceaiscoding/PROG_JOC/blob/main/Sprint%20Reports/Sprint%20Goals/Goals%20-%20Sprint%204.pdf) :computer:
+  - [Sprint 5 Goals](https://github.com/mirceaiscoding/PROG_JOC/blob/main/Sprint%20Reports/Sprint%20Goals/Goals%20-%20Sprint%205.pdf) :computer:
 
 - Achieved Goals:
-  - [Sprint 1 Achieved Goals](https://github.com/mirceaiscoding/PROG_JOC/blob/main/Sprint%20Goals%20Achieved/Sprint%201%20-%20Obiective%20indeplinite.pdf) :white_check_mark:
-  - [Sprint 2 Achieved Goals](https://github.com/mirceaiscoding/PROG_JOC/blob/main/Sprint%20Goals%20Achieved/Sprint%201%20-%20Obiective%20indeplinite.pdf) :white_check_mark:
-  - [Sprint 3 Achieved Goals](https://github.com/mirceaiscoding/PROG_JOC/blob/main/Sprint%20Goals%20Achieved/Sprint%201%20-%20Obiective%20indeplinite.pdf) :white_check_mark:
-  - [Sprint 4 Achieved Goals](https://github.com/mirceaiscoding/PROG_JOC/blob/main/Sprint%20Goals%20Achieved/Sprint%201%20-%20Obiective%20indeplinite.pdf) :white_check_mark:
+  - [Sprint 1 Achieved Goals](https://github.com/mirceaiscoding/PROG_JOC/blob/main/Sprint%20Reports/Sprint%20Goals%20Achieved/Sprint%201%20-%20Obiective%20indeplinite.pdf) :white_check_mark:
+  - [Sprint 2 Achieved Goals](https://github.com/mirceaiscoding/PROG_JOC/blob/main/Sprint%20Reports/Sprint%20Goals%20Achieved/Sprint%202%20-%20Obiective%20indeplinite.pdf) :white_check_mark:
+  - [Sprint 3 Achieved Goals](https://github.com/mirceaiscoding/PROG_JOC/blob/main/Sprint%20Reports/Sprint%20Goals%20Achieved/Sprint%203%20-%20Obiective%20Indeplinite.pdf) :white_check_mark:
+  - [Sprint 4 Achieved Goals](https://github.com/mirceaiscoding/PROG_JOC/blob/main/Sprint%20Reports/Sprint%20Goals%20Achieved/Sprint%204%20-%20Obiective%20Indeplinite.pdf) :white_check_mark:
 
 ## Backlog
 You can find our backlog [(here)](https://github.com/users/mirceaiscoding/projects/3)
