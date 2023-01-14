@@ -15,6 +15,9 @@ public class Health : MonoBehaviour
     // Sound when player is die
     public AudioSource playerDeathSound;
 
+    // Sound when player takes damage
+    public AudioSource playerDamageSound;
+
     void Start()
     {
         health = maxHealth;
@@ -34,6 +37,11 @@ public class Health : MonoBehaviour
         {
             health -= amount;
             OnDamaged?.Invoke();
+
+            if (this.gameObject.tag == "Player")
+            {
+                playerDamageSound.Play();
+            }
 
             if (health <= 0)
             {
