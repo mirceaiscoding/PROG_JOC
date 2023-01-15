@@ -77,3 +77,7 @@ To contribute to the project, follow these steps:
 ## Support
 
 If you have any questions or need help getting started, please contact our team through Mircea Bina. We're here to help!
+
+## Demo Video
+
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=VNh5xj8MkcU" target="_blank"><img src="https://i.imgur.com/auWxJsU.png" alt="2D Shooter Demo" width="750" height="540" border="10"></a>
