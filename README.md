@@ -29,6 +29,8 @@ or by clicking on this photo:
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=VNh5xj8MkcU" target="_blank"><img src="https://i.imgur.com/auWxJsU.png" alt="2D Shooter Demo" width="750" height="540" border="10"></a>
 
+We also have a keyboard shortcut on the ```F1``` key to enable or disable **God Mode** :sweat_smile:
+
 ## Sprint Reports
 - _**Goals:**_
   - [Sprint 1 Goals](https://github.com/mirceaiscoding/PROG_JOC/blob/main/Sprint%20Reports/Sprint%20Goals/Goals%20-%20Sprint%201.pdf) :computer:
