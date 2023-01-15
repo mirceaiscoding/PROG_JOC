@@ -38,6 +38,7 @@ public class VolumeManager : MonoBehaviour
     {
         backgroundMusic.GetComponent<AudioSource>().volume = volume;
         musicVolumeTextValue.text = volume.ToString("0.0");
+        VolumeApply();
     }
 
     public void VolumeApply()
