@@ -740,6 +740,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3216880844337894821, guid: 94f78ee8c35aa79469e0c83ef4d84b5b, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3216880846063913420, guid: 94f78ee8c35aa79469e0c83ef4d84b5b, type: 3}
       propertyPath: m_Name
       value: Level 3 Coins

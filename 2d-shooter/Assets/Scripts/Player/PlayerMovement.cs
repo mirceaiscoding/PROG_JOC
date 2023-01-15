@@ -39,6 +39,12 @@ public class PlayerMovement : MonoBehaviour
     // Increasing speed for god mode
     public bool godModeSpeed = false;
 
+    // God mode sound effect
+    [SerializeField] private AudioSource godModeSound;
+
+    // Message for God Mode enabled / disabled
+    public TMPro.TextMeshProUGUI godModeText = null;
+
     [SerializeField] private AudioSource walkSoundEffect;
 
     private void OnEnable()
@@ -51,12 +57,18 @@ public class PlayerMovement : MonoBehaviour
         health.OnDeath -= DisablePlayerMovement;
     }
 
+    void hideText()
+    {
+        godModeText.gameObject.SetActive(false);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         multiplierText.text = "x" + movementSpeedMultiplier.ToString();
         EnablePlayerMovement();
         baseSpeed = moveSpeed;
+        godModeText.gameObject.SetActive(false);
     }
     // Update is called once per frame
     void Update()
@@ -65,6 +77,21 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F1))
         {
             godModeSpeed = !godModeSpeed;
+            godModeText.gameObject.SetActive(godModeSpeed);
+
+            if (godModeSpeed)
+            {
+                godModeText.gameObject.SetActive(true);
+                godModeText.text = "God mode enabled!";
+                godModeSound.Play(); // play the god mode sound effect
+                Invoke("hideText", 2);
+            }
+            else
+            {
+                godModeText.gameObject.SetActive(true);
+                godModeText.text = "God mode disabled!";
+                Invoke("hideText", 2);
+            }
         }
         if (godModeSpeed)
         {
@@ -75,6 +102,7 @@ public class PlayerMovement : MonoBehaviour
             moveSpeed = Mathf.Clamp(baseSpeed, 0f, maxSpeed);
         }
     }
+
     // Independent of framerate
     void FixedUpdate()
     {

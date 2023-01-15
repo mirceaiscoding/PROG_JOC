@@ -469,6 +469,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1593452905208830823, guid: b2a5e46d2400c4f838012b252899a9b4, type: 3}
+      propertyPath: godModeText
+      value: 
+      objectReference: {fileID: 236304192}
+    - target: {fileID: 1593452905208830823, guid: b2a5e46d2400c4f838012b252899a9b4, type: 3}
       propertyPath: multiplierText
       value: 
       objectReference: {fileID: 373278278}
@@ -527,6 +531,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: da23398e538d8f443ba83790ae466384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &236304192 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 236304192, guid: f63f4a3106b634a3886acbc674e61aec, type: 3}
+  m_PrefabInstance: {fileID: 2082294409}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &237312346
@@ -2852,6 +2867,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hearts UI
       objectReference: {fileID: 0}
+    - target: {fileID: 3442995714768071790, guid: f63f4a3106b634a3886acbc674e61aec, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9017989724356758286, guid: f63f4a3106b634a3886acbc674e61aec, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f63f4a3106b634a3886acbc674e61aec, type: 3}
 --- !u!114 &2084042605 stripped
@@ -2930,7 +2953,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 72bab0c12a2e24a54a74f0ceaaa7aedc, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 3
   Loop: 0
   Mute: 0
