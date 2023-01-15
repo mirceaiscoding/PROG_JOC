@@ -36,6 +36,7 @@ The purpose of this project is to learn Unity development by creating and manipu
   - [Sprint 2 Achieved Goals](https://github.com/mirceaiscoding/PROG_JOC/blob/main/Sprint%20Reports/Sprint%20Goals%20Achieved/Sprint%202%20-%20Obiective%20indeplinite.pdf) :white_check_mark:
   - [Sprint 3 Achieved Goals](https://github.com/mirceaiscoding/PROG_JOC/blob/main/Sprint%20Reports/Sprint%20Goals%20Achieved/Sprint%203%20-%20Obiective%20Indeplinite.pdf) :white_check_mark:
   - [Sprint 4 Achieved Goals](https://github.com/mirceaiscoding/PROG_JOC/blob/main/Sprint%20Reports/Sprint%20Goals%20Achieved/Sprint%204%20-%20Obiective%20Indeplinite.pdf) :white_check_mark:
+  - [Sprint 5 Achieved Goals](https://github.com/mirceaiscoding/PROG_JOC/blob/main/Sprint%20Reports/Sprint%20Goals%20Achieved/Sprint%205%20-%20Obiective%20indeplinite.pdf) :white_check_mark:
 
 ## Backlog
 You can find our backlog [(here)](https://github.com/users/mirceaiscoding/projects/3)
