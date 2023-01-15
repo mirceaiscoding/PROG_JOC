@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ChestOpener : MonoBehaviour
 {
@@ -16,6 +17,10 @@ public class ChestOpener : MonoBehaviour
 
     public AudioSource chestSound;
 
+    public TMPro.TextMeshProUGUI chestInstruction;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +33,32 @@ public class ChestOpener : MonoBehaviour
     void Update()
     {
         Player = GameObject.FindGameObjectsWithTag("Player")[0];
+
+        if (!wasOpened && Vector2.Distance(Player.transform.position, transform.position) < interactionDistance)
+        {
+            chestInstruction.text = "Press E to open";
+            if (Player.transform.position.x > transform.position.x)
+            {
+                chestInstruction.transform.position = transform.position + new Vector3(-1f, 1f, 0f);
+            }
+            else if (Player.transform.position.x < transform.position.x)
+            {
+                chestInstruction.transform.position = transform.position + new Vector3(1f, 1f, 0f);
+            }
+            else if (Player.transform.position.y > transform.position.y)
+            {
+                chestInstruction.transform.position = transform.position + new Vector3(0f, 1f, 0f);
+            }
+            else
+            {
+                chestInstruction.transform.position = transform.position + new Vector3(0f, -1f, 0f);
+            }
+        }
+        else if (wasOpened || !(Vector2.Distance(Player.transform.position, transform.position) < interactionDistance))
+        {
+            chestInstruction.text = "";
+        }
+
         if (Vector2.Distance(Player.transform.position, transform.position) < interactionDistance
             && Input.GetKeyDown(KeyCode.E))
         {
@@ -41,7 +72,8 @@ public class ChestOpener : MonoBehaviour
                 chestSound.Play();
 
                 // if it was never opened drop loot
-                if (!wasOpened) {
+                if (!wasOpened)
+                {
                     wasOpened = true;
                     DropLoot();
                 }
@@ -57,7 +89,6 @@ public class ChestOpener : MonoBehaviour
             }
         }
     }
-
     void DropLoot()
     {
         // Randomly select an item from the possible loot
