@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ChestOpener : MonoBehaviour
 {
@@ -16,48 +17,63 @@ public class ChestOpener : MonoBehaviour
 
     public AudioSource chestSound;
 
+    public TextMeshPro chestInstruction;
+
     // Start is called before the first frame update
     void Start()
     {
         Player = GameObject.FindGameObjectsWithTag("Player")[0];
         ChestClose.SetActive(true);
         ChestOpen.SetActive(false);
+        chestInstruction.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
         Player = GameObject.FindGameObjectsWithTag("Player")[0];
-        if (Vector2.Distance(Player.transform.position, transform.position) < interactionDistance
-            && Input.GetKeyDown(KeyCode.E))
+
+        if (Vector2.Distance(Player.transform.position, transform.position) < interactionDistance)
         {
-            if (ChestClose.activeSelf)
+
+            if (!wasOpened) {
+                chestInstruction.enabled = true;
+            } else {
+                chestInstruction.enabled = false;
+            }
+
+            if (Input.GetKeyDown(KeyCode.E)) 
             {
-                // open chest
-                ChestClose.SetActive(false);
-                ChestOpen.SetActive(true);
+                if (ChestClose.activeSelf)
+                {
+                    // open chest
+                    ChestClose.SetActive(false);
+                    ChestOpen.SetActive(true);
 
-                // Play the chest sound
-                chestSound.Play();
+                    // Play the chest sound
+                    chestSound.Play();
 
-                // if it was never opened drop loot
-                if (!wasOpened) {
-                    wasOpened = true;
-                    DropLoot();
+                    // if it was never opened drop loot
+                    if (!wasOpened)
+                    {
+                        wasOpened = true;
+                        DropLoot();
+                    }
+                }
+                else
+                {
+                    // close chest
+                    ChestClose.SetActive(true);
+                    ChestOpen.SetActive(false);
+
+                    // Play the chest sound
+                    chestSound.Play();
                 }
             }
-            else
-            {
-                // close chest
-                ChestClose.SetActive(true);
-                ChestOpen.SetActive(false);
-
-                // Play the chest sound
-                chestSound.Play();
-            }
+        } else {
+            chestInstruction.enabled = false;
         }
     }
-
     void DropLoot()
     {
         // Randomly select an item from the possible loot
