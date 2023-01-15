@@ -17,9 +17,7 @@ public class ChestOpener : MonoBehaviour
 
     public AudioSource chestSound;
 
-    public TMPro.TextMeshProUGUI chestInstruction;
-
-
+    public TextMeshPro chestInstruction;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +25,7 @@ public class ChestOpener : MonoBehaviour
         Player = GameObject.FindGameObjectsWithTag("Player")[0];
         ChestClose.SetActive(true);
         ChestOpen.SetActive(false);
+        chestInstruction.enabled = false;
     }
 
     // Update is called once per frame
@@ -34,59 +33,45 @@ public class ChestOpener : MonoBehaviour
     {
         Player = GameObject.FindGameObjectsWithTag("Player")[0];
 
-        if (!wasOpened && Vector2.Distance(Player.transform.position, transform.position) < interactionDistance)
+        if (Vector2.Distance(Player.transform.position, transform.position) < interactionDistance)
         {
-            chestInstruction.text = "Press E to open";
-            if (Player.transform.position.x > transform.position.x)
-            {
-                chestInstruction.transform.position = transform.position + new Vector3(-1f, 1f, 0f);
-            }
-            else if (Player.transform.position.x < transform.position.x)
-            {
-                chestInstruction.transform.position = transform.position + new Vector3(1f, 1f, 0f);
-            }
-            else if (Player.transform.position.y > transform.position.y)
-            {
-                chestInstruction.transform.position = transform.position + new Vector3(0f, 1f, 0f);
-            }
-            else
-            {
-                chestInstruction.transform.position = transform.position + new Vector3(0f, -1f, 0f);
-            }
-        }
-        else if (wasOpened || !(Vector2.Distance(Player.transform.position, transform.position) < interactionDistance))
-        {
-            chestInstruction.text = "";
-        }
 
-        if (Vector2.Distance(Player.transform.position, transform.position) < interactionDistance
-            && Input.GetKeyDown(KeyCode.E))
-        {
-            if (ChestClose.activeSelf)
+            if (!wasOpened) {
+                chestInstruction.enabled = true;
+            } else {
+                chestInstruction.enabled = false;
+            }
+
+            if (Input.GetKeyDown(KeyCode.E)) 
             {
-                // open chest
-                ChestClose.SetActive(false);
-                ChestOpen.SetActive(true);
-
-                // Play the chest sound
-                chestSound.Play();
-
-                // if it was never opened drop loot
-                if (!wasOpened)
+                if (ChestClose.activeSelf)
                 {
-                    wasOpened = true;
-                    DropLoot();
+                    // open chest
+                    ChestClose.SetActive(false);
+                    ChestOpen.SetActive(true);
+
+                    // Play the chest sound
+                    chestSound.Play();
+
+                    // if it was never opened drop loot
+                    if (!wasOpened)
+                    {
+                        wasOpened = true;
+                        DropLoot();
+                    }
+                }
+                else
+                {
+                    // close chest
+                    ChestClose.SetActive(true);
+                    ChestOpen.SetActive(false);
+
+                    // Play the chest sound
+                    chestSound.Play();
                 }
             }
-            else
-            {
-                // close chest
-                ChestClose.SetActive(true);
-                ChestOpen.SetActive(false);
-
-                // Play the chest sound
-                chestSound.Play();
-            }
+        } else {
+            chestInstruction.enabled = false;
         }
     }
     void DropLoot()
