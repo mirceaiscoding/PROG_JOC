@@ -38,7 +38,7 @@ public class Health : MonoBehaviour
             health -= amount;
             OnDamaged?.Invoke();
 
-            if (this.gameObject.tag == "Player")
+            if (this.gameObject.tag == "Player" && amount > 0)
             {
                 playerDamageSound.Play();
             }
