@@ -22,6 +22,9 @@ public class GunFire : MonoBehaviour
     // The speed of the bullet. Set in Unity Editor. Defaults to 10
     public float fireForce = 10.0f;
 
+    // Sound when player is shoting
+    public AudioSource shootSound;
+
     // Variable to check if the gun is blocked by a wall
     public bool gunIsObscured = false;
 
@@ -125,6 +128,9 @@ public class GunFire : MonoBehaviour
 
                 // Fire the bullet
                 projectile.GetComponent<Rigidbody2D>().velocity = (Quaternion.Euler(0, 0, bulletSpread*( ((float) bulletsFired-1) / 2 - i )) * firePoint.right) * fireForce;
+
+                // Play shooting sound
+                shootSound.Play();
             }
         }
     }
