@@ -23,7 +23,9 @@ The purpose of this project is to learn Unity development by creating and manipu
 - Increasing difficulty level as you progress through the game
 - Multiple levels with different environments
 
-## Demo Video
+## Demo of Game
+You can find our Demo [(here)](http://www.youtube.com/watch?feature=player_embedded&v=VNh5xj8MkcU)
+or by clicking on this photo:
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=VNh5xj8MkcU" target="_blank"><img src="https://i.imgur.com/auWxJsU.png" alt="2D Shooter Demo" width="750" height="540" border="10"></a>
 
