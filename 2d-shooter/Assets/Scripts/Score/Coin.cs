@@ -15,6 +15,7 @@ public class Coin : MonoBehaviour
             
             GameObject level1Coins = GameObject.Find("Level 1 Coins");
             GameObject level2Coins = GameObject.Find("Level 2 Coins");
+            GameObject level3Coins = GameObject.Find("Level 3 Coins");
 
             if (level1Coins != null)
             {
@@ -23,6 +24,10 @@ public class Coin : MonoBehaviour
             else if (level2Coins != null)
             {
                 level2Coins.GetComponent<CoinCollectSound>().PlayCoinCollectSound();
+            }
+            else if (level3Coins != null)
+            {
+                level3Coins.GetComponent<CoinCollectSound>().PlayCoinCollectSound();
             }
 
             Destroy(gameObject);
