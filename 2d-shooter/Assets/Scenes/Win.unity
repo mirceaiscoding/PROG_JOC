@@ -981,10 +981,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Congrats! You just finished our game
+  m_text: 'Congrats! You just finished our game!
 
-    We really hope that you liked
-    it!'
+    We hope that you liked it!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f08513602fb42d244be4aa1bc8e65c29, type: 2}
   m_sharedMaterial: {fileID: 4457079395945605432, guid: f08513602fb42d244be4aa1bc8e65c29, type: 2}
@@ -1011,13 +1010,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 70
-  m_fontSizeBase: 70
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535

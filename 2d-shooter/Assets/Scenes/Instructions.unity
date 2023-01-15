@@ -520,7 +520,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -466.40063, y: -42.05728}
+  m_AnchoredPosition: {x: -466.40063, y: -59}
   m_SizeDelta: {x: -1127.1823, y: -493.744}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &864987827
@@ -543,17 +543,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'In this game you have to kill as many monsters as possible, otherwise
-    they will kill you!
-
-    Try to collect as many coins as possible, during the
-    game you will see that they will help you!
-
-
-    P.S. We hope that you will enjoy
-    by playing it!
-
-    WE WISH YOU GOOD LUCK FOLK !!'
+  m_text: "Move with WASD. \nAim by pointing the mouse.\nShoot by left clicking.
+    \nOpen chests by pressing E.\n\nTry to collect as many coins and reach the end
+    of the castle! GOOD LUCK !!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f08513602fb42d244be4aa1bc8e65c29, type: 2}
   m_sharedMaterial: {fileID: 4457079395945605432, guid: f08513602fb42d244be4aa1bc8e65c29, type: 2}
@@ -586,8 +578,8 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
-  m_HorizontalAlignment: 2
+  m_fontStyle: 0
+  m_HorizontalAlignment: 32
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -616,7 +608,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -956.81116, w: 0}
+  m_margin: {x: 0, y: 26.94806, z: -956.81116, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
