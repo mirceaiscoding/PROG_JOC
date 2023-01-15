@@ -6,6 +6,9 @@ using TMPro;
 
 public class VolumeManager : MonoBehaviour
 {
+    // Singleton design pattern :)
+    public static VolumeManager instance = null;
+
     [SerializeField] private Slider gameVolumeSlider = null;
     [SerializeField] private TMP_Text gameVolumeTextValue = null;
 
@@ -17,21 +20,52 @@ public class VolumeManager : MonoBehaviour
 
     [SerializeField] private GameObject backgroundMusic;
 
+    [SerializeField] private GameObject[] objectsWithAudio;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+    }
+
     private void Start()
     {
-        gameVolumeSlider.value = PlayerPrefs.GetFloat("gameVolume", 1);
-        gameVolumeTextValue.text = gameVolumeSlider.value.ToString("0.0");
-        AudioListener.volume = gameVolumeSlider.value;
+        float gameVolume = PlayerPrefs.GetFloat("gameVolume", 1.0f);
+        gameVolumeSlider.value = gameVolume;
+        gameVolumeTextValue.text = gameVolume.ToString("0.0");
+        ChangeVolumeForAllScenes(gameVolume);
 
-        musicVolumeSlider.value = PlayerPrefs.GetFloat("musicVolume", 1);
-        musicVolumeTextValue.text = musicVolumeSlider.value.ToString("0.0");
-        backgroundMusic.GetComponent<AudioSource>().volume = musicVolumeSlider.value;
+        float musicVolume = PlayerPrefs.GetFloat("musicVolume", 1.0f);
+        musicVolumeSlider.value = musicVolume;
+        musicVolumeTextValue.text = musicVolume.ToString("0.0");
+        backgroundMusic.GetComponent<AudioSource>().volume = musicVolume;
+    }
+
+    public void ChangeVolumeForAllScenes(float volume)
+    {
+        ChangeVolumeForAllScenes(volume);
+        PlayerPrefs.SetFloat("gameVolume", volume);
+        gameVolumeTextValue.text = volume.ToString("0.0");
     }
 
     public void GameVolumeSlider(float volume)
     {
-        AudioListener.volume = volume;
-        gameVolumeTextValue.text = volume.ToString("0.0");
+        foreach (GameObject obj in objectsWithAudio)
+        {
+            AudioSource[] audioSources = obj.GetComponents<AudioSource>();
+            foreach (AudioSource audio in audioSources)
+            {
+                audio.volume = volume;
+            }
+        }
     }
 
     public void MusicVolumeSlider(float volume)
