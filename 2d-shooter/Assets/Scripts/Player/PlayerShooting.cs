@@ -30,9 +30,6 @@ public class PlayerShooting : MonoBehaviour
     // Keeps track of the initial shot cooldown
     private float initialShotCooldown;
 
-    // Sound when player is shoting
-    public AudioSource shootSound;
-
     void Start()
     {
         // Initialize nextShotTime to the current time.
@@ -94,7 +91,6 @@ public class PlayerShooting : MonoBehaviour
                 nextShotTime = Time.time + shotCooldown/attackSpeedMultiplier;
                 
                 gun.CheckCharging(false);
-                shootSound.Play();
             }
         }
         if (Input.GetMouseButtonUp(0)){

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Chase Player
   m_EditorClassIdentifier: 
   targetTag: Player
-  stoppingDistance: 0.5
+  stoppingDistance: 0.2
   nextWaypointDistance: 1
