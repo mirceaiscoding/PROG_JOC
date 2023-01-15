@@ -23,6 +23,10 @@ The purpose of this project is to learn Unity development by creating and manipu
 - Increasing difficulty level as you progress through the game
 - Multiple levels with different environments
 
+## Demo Video
+
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=VNh5xj8MkcU" target="_blank"><img src="https://i.imgur.com/auWxJsU.png" alt="2D Shooter Demo" width="750" height="540" border="10"></a>
+
 ## Sprint Reports
 - _**Goals:**_
   - [Sprint 1 Goals](https://github.com/mirceaiscoding/PROG_JOC/blob/main/Sprint%20Reports/Sprint%20Goals/Goals%20-%20Sprint%201.pdf) :computer:
@@ -78,6 +82,3 @@ To contribute to the project, follow these steps:
 
 If you have any questions or need help getting started, please contact our team through Mircea Bina. We're here to help!
 
-## Demo Video
-
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=VNh5xj8MkcU" target="_blank"><img src="https://i.imgur.com/auWxJsU.png" alt="2D Shooter Demo" width="750" height="540" border="10"></a>
