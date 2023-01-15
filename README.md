@@ -23,6 +23,14 @@ The purpose of this project is to learn Unity development by creating and manipu
 - Increasing difficulty level as you progress through the game
 - Multiple levels with different environments
 
+## Demo of Game
+You can find our Demo [(here)](http://www.youtube.com/watch?feature=player_embedded&v=VNh5xj8MkcU)
+or by clicking on this photo:
+
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=VNh5xj8MkcU" target="_blank"><img src="https://i.imgur.com/auWxJsU.png" alt="2D Shooter Demo" width="750" height="540" border="10"></a>
+
+We also have a keyboard shortcut on the ```F1``` key to enable or disable **God Mode** :sweat_smile:
+
 ## Sprint Reports
 - _**Goals:**_
   - [Sprint 1 Goals](https://github.com/mirceaiscoding/PROG_JOC/blob/main/Sprint%20Reports/Sprint%20Goals/Goals%20-%20Sprint%201.pdf) :computer:
@@ -36,6 +44,7 @@ The purpose of this project is to learn Unity development by creating and manipu
   - [Sprint 2 Achieved Goals](https://github.com/mirceaiscoding/PROG_JOC/blob/main/Sprint%20Reports/Sprint%20Goals%20Achieved/Sprint%202%20-%20Obiective%20indeplinite.pdf) :white_check_mark:
   - [Sprint 3 Achieved Goals](https://github.com/mirceaiscoding/PROG_JOC/blob/main/Sprint%20Reports/Sprint%20Goals%20Achieved/Sprint%203%20-%20Obiective%20Indeplinite.pdf) :white_check_mark:
   - [Sprint 4 Achieved Goals](https://github.com/mirceaiscoding/PROG_JOC/blob/main/Sprint%20Reports/Sprint%20Goals%20Achieved/Sprint%204%20-%20Obiective%20Indeplinite.pdf) :white_check_mark:
+  - [Sprint 5 Achieved Goals](https://github.com/mirceaiscoding/PROG_JOC/blob/main/Sprint%20Reports/Sprint%20Goals%20Achieved/Sprint%205%20-%20Obiective%20indeplinite.pdf) :white_check_mark:
 
 ## Backlog
 You can find our backlog [(here)](https://github.com/users/mirceaiscoding/projects/3)
@@ -76,3 +85,4 @@ To contribute to the project, follow these steps:
 ## Support
 
 If you have any questions or need help getting started, please contact our team through Mircea Bina. We're here to help!
+
