@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class WelcomeLevel1 : MonoBehaviour
+public class WelcomeLevel : MonoBehaviour
 {
     private void Start()
     {
