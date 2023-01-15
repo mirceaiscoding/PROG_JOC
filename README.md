@@ -1,13 +1,12 @@
-# 2D-shooter
+# 2D Shooter :gun:
 
-A fast-paced, action-packed, 2D shooter game developed by a team of 7. Users play as a wizard fighting against waves of enemy forces, using a variety of weapons and power-ups to defeat them. The game features stunning graphics and smooth gameplay, making it a thrilling experience for players of all ages. :smiley: :heart:
+Introducing 2D Shooter, a fast-paced, action-packed game developed by a team of 7. Players take on the role of a wizard, fighting against waves of enemy forces using a variety of weapons and power-ups to defeat them. The game features stunning graphics and smooth gameplay, making it an exciting experience for players of all ages. :heart:
 
-## Purpose of this project
+## Project Overview
 
-Learn Unity development by creating and manipulating scenes, adding game elements and scripting actions.
+The purpose of this project is to learn Unity development by creating and manipulating scenes, adding game elements, and scripting actions.
 
-## Team Members
-
+**The team is composed of**:
 - Atudorei Miruna (331) - Team Leader
 - Bina Mircea (331) - Senior Developer
 - Popescu Paullo (331) - Developer
@@ -16,7 +15,7 @@ Learn Unity development by creating and manipulating scenes, adding game element
 - Troaca Denis (331) - Developer
 - Linte Robert (331) - Developer
 
-## Features
+## Game Features
 
 - Fast-paced, action-packed gameplay
 - A variety of weapons and power-ups to defeat enemies
@@ -41,38 +40,38 @@ Learn Unity development by creating and manipulating scenes, adding game element
 ## Backlog
 You can find our backlog [(here)](https://github.com/users/mirceaiscoding/projects/3)
 
-![image](https://user-images.githubusercontent.com/73616883/212483728-bbda6959-6801-444a-b2a8-d32e1b0efe61.png)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/73616883/212483728-bbda6959-6801-444a-b2a8-d32e1b0efe61.png" alt="Backlog"/>
+</p>
 
-## Last version
+## Latest version
 The stable version of the game can be found on the `main` branch of this repository.
 
 ## Getting started
 
-Follow these steps:
+To get started with the 2D-shooter project, follow these steps:
 
-- Clone this repository
-- Open `Unity Hub` and press the `Open` button
-- Navigate to where you cloned the repository
-- <b>IMPORTANT</b>: Select the `2d-shooter` folder
+1. Clone this repository to your local machine
+2. Open `Unity Hub` and press the `Open` button
+3. Navigate to the location you cloned the repository
+4. <b>IMPORTANT</b>: Select the `2d-shooter` folder
 
-<i>The project should be imported.</i>
+<i>The project should now be imported successfully.</i>
 
-You may see an empty scene.. To open a scene go to the `Scenes` folder and double click on a scene.
+To open a scene, navigate to the `Scenes` folder and double-click on the desired scene.
 
-‼️ IMPORTANT: Change the display from `Free aspect` to `Full HD` in order to see the game and the UI as intended.
+‼️ IMPORTANT: Change the display setting to `Full HD` in order to view the game and the UI as intended.
 
 ## Contributing
 
-Follow these steps:
+To contribute to the project, follow these steps:
 
-- Go to the issues tab and choose a free issue.
-- Create a new issue branch by going to the development section and pressing `create a branch`
-
-<img width="350" alt="image" src="https://user-images.githubusercontent.com/67867765/196921478-43352b45-2e68-4d91-b703-8efbf6d06de3.png">
-
-- <b>IMPORTANT</b>: Don't forget to checkout the branch before starting to work on the issue
-- When you are done, go to your branch on github and create a pull reuest
-- Add @mirceaiscoding as the reviewer
+1. Go to the `Issues` tab and select an available issue to work on.
+2. Create a new issue branch by going to the `Development` section and pressing `Create a branch`.
+    <img width="350" src="https://user-images.githubusercontent.com/67867765/196921478-43352b45-2e68-4d91-b703-8efbf6d06de3.png" alt="Branches"/>
+3. <b>IMPORTANT</b>: Checkout the branch before starting to work on the issue.
+4. When you are done, go to your branch on GitHub and create a pull request.
+4. Add @mirceaiscoding as reviewer.
 
 ## Support
 
