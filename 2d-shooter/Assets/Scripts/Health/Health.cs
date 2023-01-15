@@ -68,6 +68,7 @@ public class Health : MonoBehaviour
                 {
                     GameObject level1Enemies = GameObject.Find("Level 1 Enemies");
                     GameObject level2Enemies = GameObject.Find("Level 2 Enemies");
+                    GameObject level3Enemies = GameObject.Find("Level 3 Enemies");
 
                     if (level1Enemies != null)
                     {
@@ -76,6 +77,10 @@ public class Health : MonoBehaviour
                     else if (level2Enemies != null)
                     {
                         level2Enemies.GetComponent<KillEnemySound>().PlayEnemyDeathsSound();
+                    }
+                    else if (level3Enemies != null)
+                    {
+                        level3Enemies.GetComponent<KillEnemySound>().PlayEnemyDeathsSound();
                     }
                 }
                 health = 0;
