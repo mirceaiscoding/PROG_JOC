@@ -12,6 +12,12 @@ public class Health : MonoBehaviour
 
     public bool godMode = false;
 
+    // Sound when player is die
+    public AudioSource playerDeathSound;
+
+    // Sound when player takes damage
+    public AudioSource playerDamageSound;
+
     void Start()
     {
         health = maxHealth;
@@ -32,6 +38,11 @@ public class Health : MonoBehaviour
             health -= amount;
             OnDamaged?.Invoke();
 
+            if (this.gameObject.tag == "Player")
+            {
+                playerDamageSound.Play();
+            }
+
             if (health <= 0)
             {
                 // if an enemy dies, increase the number of enemies killed by the player
@@ -45,10 +56,28 @@ public class Health : MonoBehaviour
                 }
 
                 // if the player dies, save the number of levels completed, enemies killed etc.
-                if(this.gameObject.tag == "Player"){
+                if (this.gameObject.tag == "Player"){
                     this.gameObject.GetComponent<PreviousScore>().SetPreviousScores();
                 }
 
+                if (this.gameObject.tag == "Player" && health == 0)
+                {
+                    playerDeathSound.Play();
+                }
+                else if (this.gameObject.tag == "Enemy" && health == 0)
+                {
+                    GameObject level1Enemies = GameObject.Find("Level 1 Enemies");
+                    GameObject level2Enemies = GameObject.Find("Level 2 Enemies");
+
+                    if (level1Enemies != null)
+                    {
+                        level1Enemies.GetComponent<KillEnemySound>().PlayEnemyDeathsSound();
+                    }
+                    else if (level2Enemies != null)
+                    {
+                        level2Enemies.GetComponent<KillEnemySound>().PlayEnemyDeathsSound();
+                    }
+                }
                 health = 0;
                 Debug.Log("You're dead");
                 OnDeath?.Invoke();
