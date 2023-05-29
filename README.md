@@ -6,15 +6,6 @@ Introducing 2D Shooter, a fast-paced, action-packed game developed by a team of 
 
 The purpose of this project is to learn Unity development by creating and manipulating scenes, adding game elements, and scripting actions.
 
-**The team is composed of**:
-- Atudorei Miruna (331) - Team Leader
-- Bina Mircea (331) - Senior Developer
-- Popescu Paullo (331) - Developer
-- Voiculescu Alina (331) - Developer
-- Geman Amalia (331) - Developer
-- Troaca Denis (331) - Developer
-- Linte Robert (331) - Developer
-
 ## Game Features
 
 - Fast-paced, action-packed gameplay
